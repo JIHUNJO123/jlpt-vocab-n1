@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,16 +15,16 @@ class AdService {
   InterstitialAd? _interstitialAd;
   bool _isInterstitialAdLoaded = false;
 
-  // ?제 광고 ID
+  // JLPT Step N5?밡3 愿묎퀬 ID
   // Android
   static const String _androidBannerId =
-      'ca-app-pub-5837885590326347/3658579299';
+      'ca-app-pub-5837885590326347/6675199844';
   static const String _androidInterstitialId =
-      'ca-app-pub-5837885590326347/6767958368';
+      'ca-app-pub-5837885590326347/5362118174';
   // iOS
-  static const String _iosBannerId = 'ca-app-pub-5837885590326347/2375726715';
+  static const String _iosBannerId = 'ca-app-pub-5837885590326347/9636405103';
   static const String _iosInterstitialId =
-      'ca-app-pub-5837885590326347/8034429261';
+      'ca-app-pub-5837885590326347/6010545938';
 
   String get bannerAdUnitId {
     if (Platform.isAndroid) {
@@ -53,7 +53,7 @@ class AdService {
   Future<void> initialize() async {
     if (_isInitialized) return;
 
-    // 광고 ?거 구매 ?? ?인
+    // 愿묎퀬 ?嫄?援щℓ ?? ???
     final prefs = await SharedPreferences.getInstance();
     _adsRemoved = prefs.getBool('ads_removed') ?? false;
 
@@ -62,12 +62,17 @@ class AdService {
       return;
     }
 
-    // ???는 ?스?톱?서??광고 비활?화
+    // ?????????????愿묎퀬 鍮꾪솢???
     if (kIsWeb || (!Platform.isAndroid && !Platform.isIOS)) {
       _isInitialized = true;
       return;
     }
 
+    // JLPT Step N5?밡3 AdMob App ID
+    final appId = Platform.isAndroid 
+        ? 'ca-app-pub-5837885590326347~5763133926'  // Android
+        : 'ca-app-pub-5837885590326347~8197725571'; // iOS
+    
     await MobileAds.instance.initialize();
     _isInitialized = true;
   }
@@ -119,7 +124,7 @@ class AdService {
     _isBannerAdLoaded = false;
   }
 
-  // ?면 광고 로드
+  // ?硫?愿묎퀬 濡쒕뱶
   Future<void> loadInterstitialAd() async {
     if (_adsRemoved) return;
     if (kIsWeb || (!Platform.isAndroid && !Platform.isIOS)) return;
@@ -137,7 +142,7 @@ class AdService {
             onAdDismissedFullScreenContent: (ad) {
               ad.dispose();
               _isInterstitialAdLoaded = false;
-              loadInterstitialAd(); // ?음 광고 미리 로드
+              loadInterstitialAd(); // ???愿묎퀬 誘몃━ 濡쒕뱶
             },
             onAdFailedToShowFullScreenContent: (ad, error) {
               ad.dispose();
@@ -154,7 +159,7 @@ class AdService {
     );
   }
 
-  // ?면 광고 ?시
+  // ?硫?愿묎퀬 ???
   Future<void> showInterstitialAd() async {
     if (_adsRemoved) return;
     if (!_isInterstitialAdLoaded || _interstitialAd == null) return;
@@ -168,7 +173,7 @@ class AdService {
     _isInterstitialAdLoaded = false;
   }
 
-  // 광고 ?거 구매 ???출
+  // 愿묎퀬 ?嫄?援щℓ ???異?
   Future<void> removeAds() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('ads_removed', true);
@@ -177,7 +182,7 @@ class AdService {
     disposeInterstitialAd();
   }
 
-  // 광고 ?거 복원 (IAP 복원??
+  // 愿묎퀬 ?嫄?蹂듭썝 (IAP 蹂듭썝??
   Future<void> restoreAdsRemoved() async {
     final prefs = await SharedPreferences.getInstance();
     _adsRemoved = prefs.getBool('ads_removed') ?? false;
@@ -187,3 +192,4 @@ class AdService {
     }
   }
 }
+

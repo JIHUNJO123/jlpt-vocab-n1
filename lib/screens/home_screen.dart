@@ -1,10 +1,11 @@
 ﻿import 'package:flutter/material.dart';
-import 'package:sat_vocab_app/l10n/generated/app_localizations.dart';
+import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
 import '../services/ad_service.dart';
+import '../services/display_service.dart';
 import 'word_list_screen.dart';
 import 'word_detail_screen.dart';
 import 'favorites_screen.dart';
@@ -67,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
         await translationService.init();
 
         if (translationService.needsTranslation) {
-          // ?댁옣 踰덉뿭留??ъ슜 (API ?몄텧 ?놁쓬)
           final embeddedTranslation = word.getEmbeddedTranslation(
             translationService.currentLanguage,
             'definition',
@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       }
     } catch (e) {
-      print('Error loading today word: $e');
+      print('Error loading today word: `$e');
       if (mounted) {
         setState(() {
           _todayWord = null;
@@ -146,11 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Today's Word Card
                   _buildTodayWordCard(),
                   const SizedBox(height: 24),
-
-                  // Quick Actions
                   Text(
                     l10n.learning,
                     style: const TextStyle(
@@ -160,10 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 12),
                   _buildMenuGrid(),
-
                   const SizedBox(height: 24),
-
-                  // Difficulty Level
                   Text(
                     l10n.levelLearning,
                     style: const TextStyle(
@@ -177,7 +171,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          // 諛곕꼫 愿묎퀬
           _buildBannerAd(),
         ],
       ),
@@ -265,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      "\u{1F4C5} ${l10n.todayWord}",
+                      "\u{1F4C5} `${l10n.todayWord}",
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -297,7 +290,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      _todayWord!.word,
+                      _todayWord!.getDisplayWord(
+                        displayMode: DisplayService.instance.displayMode,
+                      ),
                       style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -440,30 +435,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildLevelCards() {
     final l10n = AppLocalizations.of(context)!;
 
-    // SAT Level 湲곗? ?덈꺼 (??泥닿퀎)
+    // N1 앱: N1만 표시
     final levels = [
       {
-        'level': 'Basic',
-        'name': l10n.basic,
-        'desc': l10n.basicDesc,
-        'color': Colors.green,
-      },
-      {
-        'level': 'Common',
-        'name': l10n.common,
-        'desc': l10n.commonDesc,
-        'color': Colors.blue,
-      },
-      {
-        'level': 'Advanced',
-        'name': l10n.advanced,
-        'desc': l10n.advancedDesc,
-        'color': Colors.orange,
-      },
-      {
-        'level': 'Expert',
-        'name': l10n.expert,
-        'desc': l10n.expertDesc,
+        'level': 'N1',
+        'name': l10n.n1,
+        'desc': l10n.n1Desc,
         'color': Colors.red,
       },
     ];

@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:sat_vocab_app/l10n/generated/app_localizations.dart';
+import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
+import '../services/display_service.dart';
 import '../db/database_helper.dart';
 
 class FavoritesFlashcardScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
     if (translationService.needsTranslation) {
       final langCode = translationService.currentLanguage;
       for (var word in _favorites) {
-        // ?�장 번역�??�용 (API ?�출 ?�음)
+        // ?占쎌옣 踰덉뿭占??占쎌슜 (API ?占쎌텧 ?占쎌쓬)
         final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
         final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
 
@@ -74,13 +75,15 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
 
   Color _getLevelColor(String level) {
     switch (level) {
-      case 'Band 5':
+      case 'N5':
         return Colors.green;
-      case 'Band 6':
+      case 'N4':
         return Colors.lightGreen;
-      case 'Band 7':
+      case 'N3':
         return Colors.orange;
-      case 'Band 8+':
+      case 'N2':
+        return Colors.purple;
+      case 'N1':
         return Colors.red;
       default:
         return Colors.blue;
@@ -221,7 +224,7 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
                               ),
                               const Spacer(),
                               Text(
-                                word.word,
+                                word.getDisplayWord(displayMode: DisplayService.instance.displayMode),
                                 style: const TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
@@ -363,3 +366,4 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
     );
   }
 }
+

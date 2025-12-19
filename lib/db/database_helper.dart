@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -12,7 +12,7 @@ class DatabaseHelper {
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _initDB('gre_words.db');
+    _database = await _initDB('jlpt_words.db');
     return _database!;
   }
 
@@ -22,14 +22,14 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 2,
+      version: 3, // ?쒖옄/?덈씪媛???꾨뱶 異붽?濡?踰꾩쟾 ?낃렇?덉씠??
       onCreate: _createDB,
       onUpgrade: _upgradeDB,
     );
   }
 
   Future _createDB(Database db, int version) async {
-    // ?�어 ?�이�?(?�장 번역 ?�함)
+    // ?占쎌뼱 ?占쎌씠占?(?占쎌옣 踰덉뿭 ?占쏀븿)
     await db.execute('''
       CREATE TABLE words (
         id INTEGER PRIMARY KEY,
@@ -44,7 +44,7 @@ class DatabaseHelper {
       )
     ''');
 
-    // 번역 캐시 ?�이�?
+    // 踰덉뿭 罹먯떆 ?占쎌씠占?
     await db.execute('''
       CREATE TABLE translations (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -57,7 +57,7 @@ class DatabaseHelper {
       )
     ''');
 
-    // ?�덱???�성
+    // ?占쎈뜳???占쎌꽦
     await db.execute('''
       CREATE INDEX idx_translations_lookup 
       ON translations(wordId, languageCode, fieldType)
@@ -68,7 +68,7 @@ class DatabaseHelper {
   }
 
   Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
-    // ??�� ?�생?�하???�장 번역 ?�함
+    // ??占쏙옙 ?占쎌깮?占쏀븯???占쎌옣 踰덉뿭 ?占쏀븿
     await db.execute('DROP TABLE IF EXISTS words');
     await db.execute('DROP TABLE IF EXISTS translations');
     await _createDB(db, newVersion);
@@ -76,39 +76,55 @@ class DatabaseHelper {
 
   Future<void> _loadInitialData(Database db) async {
     try {
-      final String response = await rootBundle.loadString(
-        'assets/data/words.json',
-      );
-      final List<dynamic> data = json.decode(response);
+      // Load all word files: N5-N3, N2, N1
+      final jsonFiles = [
+        'assets/data/words_n5_n3.json',
+        'assets/data/words_n2.json',
+        'assets/data/words_n1.json',
+      ];
 
-      for (var wordJson in data) {
-        // translations�?JSON 문자?�로 ?�??
+      int totalWords = 0;
+      for (final filePath in jsonFiles) {
+        try {
+          final String response = await rootBundle.loadString(filePath);
+          final List<dynamic> data = json.decode(response);
+
+          for (var wordJson in data) {
+        // translations占?JSON 臾몄옄?占쎈줈 ?占??
         String? translationsJson;
         if (wordJson['translations'] != null) {
           translationsJson = json.encode(wordJson['translations']);
         }
 
-        await db.insert('words', {
-          'id': wordJson['id'],
-          'word': wordJson['word'],
-          'level': wordJson['level'],
-          'partOfSpeech': wordJson['partOfSpeech'],
-          'definition': wordJson['definition'],
-          'example': wordJson['example'],
-          'category': wordJson['category'] ?? 'General',
-          'isFavorite': 0,
-          'translations': translationsJson,
-        });
+            await db.insert('words', {
+              'id': wordJson['id'],
+              'word': wordJson['word'],
+              'kanji': wordJson['kanji'],
+              'hiragana': wordJson['hiragana'],
+              'level': wordJson['level'],
+              'partOfSpeech': wordJson['partOfSpeech'],
+              'definition': wordJson['definition'],
+              'example': wordJson['example'],
+              'category': wordJson['category'] ?? 'General',
+              'isFavorite': 0,
+              'translations': translationsJson,
+            });
+          }
+          totalWords += data.length;
+          print('Loaded ${data.length} words from $filePath');
+        } catch (e) {
+          print('Error loading $filePath: $e');
+        }
       }
-      print('Loaded ${data.length} GRE words successfully');
+      print('Loaded total ${totalWords} JLPT words successfully');
     } catch (e) {
       print('Error loading initial data: $e');
     }
   }
 
-  // ============ 번역 캐시 메서??============
+  // ============ 踰덉뿭 罹먯떆 硫붿꽌??============
 
-  /// 번역 캐시?�서 가?�오�?
+  /// 踰덉뿭 罹먯떆?占쎌꽌 媛?占쎌삤占?
   Future<String?> getTranslation(
     int wordId,
     String languageCode,
@@ -127,7 +143,7 @@ class DatabaseHelper {
     return null;
   }
 
-  /// 번역 캐시???�??
+  /// 踰덉뿭 罹먯떆???占??
   Future<void> saveTranslation(
     int wordId,
     String languageCode,
@@ -144,7 +160,7 @@ class DatabaseHelper {
     }, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  /// ?�정 ?�어??모든 번역 ??��
+  /// ?占쎌젙 ?占쎌뼱??紐⑤뱺 踰덉뿭 ??占쏙옙
   Future<void> clearTranslations(String languageCode) async {
     final db = await instance.database;
     await db.delete(
@@ -154,13 +170,13 @@ class DatabaseHelper {
     );
   }
 
-  /// 모든 번역 캐시 ??��
+  /// 紐⑤뱺 踰덉뿭 罹먯떆 ??占쏙옙
   Future<void> clearAllTranslations() async {
     final db = await instance.database;
     await db.delete('translations');
   }
 
-  // ============ ?�어 메서??============
+  // ============ ?占쎌뼱 硫붿꽌??============
 
   Future<List<Word>> getAllWords() async {
     final db = await instance.database;
@@ -246,30 +262,30 @@ class DatabaseHelper {
     return Word.fromDb(result.first);
   }
 
-  // JSON ?�이??캐시 (?�장 번역 ?�함)
+  // JSON ?占쎌씠??罹먯떆 (?占쎌옣 踰덉뿭 ?占쏀븿)
   List<Word>? _jsonWordsCache;
 
-  /// JSON 캐시 ?�리??(??리로?????�용)
+  /// JSON 罹먯떆 ?占쎈━??(??由щ줈?????占쎌슜)
   void clearJsonCache() {
     _jsonWordsCache = null;
   }
 
-  /// JSON ?�일?�서 모든 ?�어 로드 (?�장 번역 ?�함)
-  /// 번역???�는 ?�일(band*.json)??먼�? 로드?�서 번역 ?�이???�선
+  /// JSON ?占쎌씪?占쎌꽌 紐⑤뱺 ?占쎌뼱 濡쒕뱶 (?占쎌옣 踰덉뿭 ?占쏀븿)
+  /// 踰덉뿭???占쎈뒗 ?占쎌씪(band*.json)??癒쇽옙? 濡쒕뱶?占쎌꽌 踰덉뿭 ?占쎌씠???占쎌꽑
   Future<List<Word>> _loadWordsFromJson() async {
-    // 캐시 무시?�고 ??�� ?�로 로드 (?�버깅용)
+    // 罹먯떆 臾댁떆?占쎄퀬 ??占쏙옙 ?占쎈줈 濡쒕뱶 (?占쎈쾭源낆슜)
     // if (_jsonWordsCache != null) return _jsonWordsCache!;
 
     try {
       final List<Word> allWords = [];
-      // 번역???�는 ?�일??먼�? 로드! (band*.json??번역 ?�이???�음)
+      // 踰덉뿭???占쎈뒗 ?占쎌씪??癒쇽옙? 濡쒕뱶! (band*.json??踰덉뿭 ?占쎌씠???占쎌쓬)
       final jsonFiles = [
         'assets/data/basic_words.json',
         'assets/data/common_words.json',
         'assets/data/advanced_words.json',
         'assets/data/expert_words.json',
         'assets/data/words_batch2.json',
-        'assets/data/words.json', // 번역 ?�는 ?�일?� 마�?막에
+        'assets/data/words.json', // 踰덉뿭 ?占쎈뒗 ?占쎌씪?占?留덌옙?留됱뿉
       ];
 
       for (final file in jsonFiles) {
@@ -279,7 +295,7 @@ class DatabaseHelper {
           final List<dynamic> data = json.decode(response);
           final words = data.map((json) => Word.fromJson(json)).toList();
           print('  Loaded ${words.length} words from $file');
-          // �?번째 ?�어??번역 ?�인
+          // 占?踰덉㎏ ?占쎌뼱??踰덉뿭 ?占쎌씤
           if (words.isNotEmpty && words.first.translations != null) {
             print(
               '  First word has translations: ${words.first.translations!.keys}',
@@ -300,9 +316,9 @@ class DatabaseHelper {
     }
   }
 
-  /// ?�어 찾기 (번역???�는 ?�어 ?�선)
+  /// ?占쎌뼱 李얘린 (踰덉뿭???占쎈뒗 ?占쎌뼱 ?占쎌꽑)
   Word? _findWordWithTranslation(List<Word> jsonWords, Word dbWord) {
-    // 같�? ?�어명으�?매칭?�는 모든 ?�어 찾기
+    // 媛숋옙? ?占쎌뼱紐낆쑝占?留ㅼ묶?占쎈뒗 紐⑤뱺 ?占쎌뼱 李얘린
     final matches =
         jsonWords
             .where((w) => w.word.toLowerCase() == dbWord.word.toLowerCase())
@@ -314,7 +330,7 @@ class DatabaseHelper {
 
     if (matches.isEmpty) return null;
 
-    // 번역???�는 ?�어 ?�선 반환
+    // 踰덉뿭???占쎈뒗 ?占쎌뼱 ?占쎌꽑 諛섑솚
     for (final word in matches) {
       if (word.translations != null && word.translations!.isNotEmpty) {
         print('Found word with translations: ${word.translations!.keys}');
@@ -323,27 +339,27 @@ class DatabaseHelper {
     }
 
     print('No word with translations found');
-    // 번역 ?�으�?�?번째 반환
+    // 踰덉뿭 ?占쎌쑝占?占?踰덉㎏ 諛섑솚
     return matches.first;
   }
 
-  /// 모든 ?�어 가?�오�?(?�장 번역 ?�함) - ?�즈??
+  /// 紐⑤뱺 ?占쎌뼱 媛?占쎌삤占?(?占쎌옣 踰덉뿭 ?占쏀븿) - ?占쎌쫰??
   Future<List<Word>> getWordsWithTranslations() async {
     final db = await instance.database;
     final dbResult = await db.query('words', orderBy: 'word ASC');
     final dbWords = dbResult.map((json) => Word.fromDb(json)).toList();
 
-    // JSON?�서 ?�장 번역 로드
+    // JSON?占쎌꽌 ?占쎌옣 踰덉뿭 濡쒕뱶
     final jsonWords = await _loadWordsFromJson();
 
-    // DB ?�어??JSON??번역 ?�이??병합 (번역 ?�는 ?�어 ?�선)
+    // DB ?占쎌뼱??JSON??踰덉뿭 ?占쎌씠??蹂묓빀 (踰덉뿭 ?占쎈뒗 ?占쎌뼱 ?占쎌꽑)
     return dbWords.map((dbWord) {
       final jsonWord = _findWordWithTranslation(jsonWords, dbWord) ?? dbWord;
       return dbWord.copyWith(translations: jsonWord.translations);
     }).toList();
   }
 
-  /// ?�늘???�어 (?�장 번역 ?�함)
+  /// ?占쎈뒛???占쎌뼱 (?占쎌옣 踰덉뿭 ?占쏀븿)
   Future<Word?> getTodayWord() async {
     try {
       final db = await instance.database;
@@ -372,7 +388,7 @@ class DatabaseHelper {
       print('=== getTodayWord Debug ===');
       print('DB Word: ${dbWord.word}');
 
-      // JSON?�서 ?�장 번역 찾기 (번역 ?�는 ?�어 ?�선)
+      // JSON?占쎌꽌 ?占쎌옣 踰덉뿭 李얘린 (踰덉뿭 ?占쎈뒗 ?占쎌뼱 ?占쎌꽑)
       final jsonWords = await _loadWordsFromJson();
       print('JSON words loaded: ${jsonWords.length}');
 
@@ -382,7 +398,7 @@ class DatabaseHelper {
 
       final finalWord = jsonWord ?? dbWord;
 
-      // DB??isFavorite ?�태?� JSON??번역 ?�이??병합
+      // DB??isFavorite ?占쏀깭?占?JSON??踰덉뿭 ?占쎌씠??蹂묓빀
       final result2 = dbWord.copyWith(translations: finalWord.translations);
       print('Final word translations: ${result2.translations}');
       return result2;
@@ -392,7 +408,7 @@ class DatabaseHelper {
     }
   }
 
-  /// ?�벨�??�어 ??가?�오�?
+  /// ?占쎈꺼占??占쎌뼱 ??媛?占쎌삤占?
   Future<Map<String, int>> getWordCountByLevel() async {
     final db = await instance.database;
     final result = await db.rawQuery(
@@ -405,7 +421,7 @@ class DatabaseHelper {
     return counts;
   }
 
-  /// ?�어??번역 ?�이???�용
+  /// ?占쎌뼱??踰덉뿭 ?占쎌씠???占쎌슜
   Future<Word> applyTranslations(Word word, String languageCode) async {
     if (languageCode == 'en') return word;
 
@@ -422,7 +438,7 @@ class DatabaseHelper {
     );
   }
 
-  /// ?�러 ?�어??번역 ?�용
+  /// ?占쎈윭 ?占쎌뼱??踰덉뿭 ?占쎌슜
   Future<List<Word>> applyTranslationsToList(
     List<Word> words,
     String languageCode,
@@ -441,3 +457,4 @@ class DatabaseHelper {
     db.close();
   }
 }
+

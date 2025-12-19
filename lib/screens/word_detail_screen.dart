@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:sat_vocab_app/l10n/generated/app_localizations.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
+import '../services/display_service.dart';
 
 class WordDetailScreen extends StatefulWidget {
   final Word word;
@@ -31,7 +32,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
 
     if (!translationService.needsTranslation) return;
 
-    // ?�장 번역�??�용 (API ?�출 ?�음)
+    // ?占쎌옣 踰덉뿭占??占쎌슜 (API ?占쎌텧 ?占쎌쓬)
     final langCode = translationService.currentLanguage;
     final embeddedDef = _word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = _word.getEmbeddedTranslation(langCode, 'example');
@@ -66,13 +67,15 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
 
   Color _getLevelColor(String level) {
     switch (level) {
-      case 'Band 5':
+      case 'N5':
         return Colors.green;
-      case 'Band 6':
+      case 'N4':
         return Colors.lightGreen;
-      case 'Band 7':
+      case 'N3':
         return Colors.orange;
-      case 'Band 8+':
+      case 'N2':
+        return Colors.purple;
+      case 'N1':
         return Colors.red;
       default:
         return Colors.blue;
@@ -173,7 +176,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      _word.word,
+                      _word.getDisplayWord(displayMode: DisplayService.instance.displayMode),
                       style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -186,7 +189,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 24),
 
-            // Definition Section - 번역 ??(??글??, ?�어 ?�래 (?�색)
+            // Definition Section - 踰덉뿭 ??(??湲??, ?占쎌뼱 ?占쎈옒 (?占쎌깋)
             _buildDefinitionSection(
               title: l10n.definition,
               icon: Icons.book,
@@ -195,7 +198,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Example Section - ?�어 ??(검?�??, 번역 ?�래 (?�색)
+            // Example Section - ?占쎌뼱 ??(寃?占??, 踰덉뿭 ?占쎈옒 (?占쎌깋)
             _buildExampleSection(
               title: l10n.example,
               icon: Icons.format_quote,
@@ -208,7 +211,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 
-  // ?�의?? 번역 먼�? (??글??, ?�어 ?�래 (?�색)
+  // ?占쎌쓽?? 踰덉뿭 癒쇽옙? (??湲??, ?占쎌뼱 ?占쎈옒 (?占쎌깋)
   Widget _buildDefinitionSection({
     required String title,
     required IconData icon,
@@ -238,7 +241,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            // 번역???�으�?번역 먼�? (??글??, ?�어 ?�래 (?�색)
+            // 踰덉뿭???占쎌쑝占?踰덉뿭 癒쇽옙? (??湲??, ?占쎌뼱 ?占쎈옒 (?占쎌깋)
             if (translation != null) ...[
               Text(
                 translation,
@@ -265,7 +268,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 
-  // ?�문?? ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
+  // ?占쎈Ц?? ?占쎌뼱 癒쇽옙? (寃?占??, 踰덉뿭 ?占쎈옒 (?占쎌깋)
   Widget _buildExampleSection({
     required String title,
     required IconData icon,
@@ -295,7 +298,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            // ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
+            // ?占쎌뼱 癒쇽옙? (寃?占??, 踰덉뿭 ?占쎈옒 (?占쎌깋)
             Text(
               content,
               style: const TextStyle(
@@ -321,3 +324,4 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 }
+
