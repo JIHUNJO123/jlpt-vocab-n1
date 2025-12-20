@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -515,7 +515,7 @@ class _WordListScreenState extends State<WordListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 4),
-                if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                  Row(
+                if (false && word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                  Row(
                     children: [
                       Text(
                         word.partOfSpeech,
@@ -622,7 +622,7 @@ class _WordListScreenState extends State<WordListScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown')
+                                if (false)
                                   Container(
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 12,
