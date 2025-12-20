@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../db/database_helper.dart';
@@ -157,16 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 12),
                   _buildMenuGrid(),
-                  const SizedBox(height: 24),
-                  Text(
-                    l10n.levelLearning,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  _buildLevelCards(),
+
                 ],
               ),
             ),
@@ -428,99 +419,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildLevelCards() {
-    final l10n = AppLocalizations.of(context)!;
-
-    // N1 앱: N1만 표시
-    final levels = [
-      {
-        'level': 'N1',
-        'name': l10n.n1,
-        'desc': l10n.n1Desc,
-        'color': Colors.red,
-      },
-    ];
-
-    return SizedBox(
-      height: 120,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: levels.length,
-        itemBuilder: (context, index) {
-          final level = levels[index];
-          return Container(
-            width: 140,
-            margin: const EdgeInsets.only(right: 10),
-            child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              WordListScreen(level: level['level'] as String),
-                    ),
-                  );
-                },
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    gradient: LinearGradient(
-                      colors: [
-                        (level['color'] as Color).withAlpha(
-                          (0.8 * 255).toInt(),
-                        ),
-                        (level['color'] as Color),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8.0,
-                      vertical: 10.0,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          level['level'] as String,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          level['desc'] as String,
-                          style: const TextStyle(
-                            fontSize: 9,
-                            color: Colors.white70,
-                          ),
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
       ),
     );
   }

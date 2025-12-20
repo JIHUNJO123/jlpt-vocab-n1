@@ -1,4 +1,4 @@
-﻿import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +21,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _darkMode = false;
   bool _dailyReminder = false;
   double _fontSize = 1.0;
-  String _furiganaDisplayMode = 'parentheses'; // 'parentheses' or 'furigana'
   bool _isLoading = true;
 
   @override
@@ -59,8 +58,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _darkMode = prefs.getBool('darkMode') ?? false;
       _dailyReminder = prefs.getBool('dailyReminder') ?? false;
       _fontSize = prefs.getDouble('wordFontSize') ?? 1.0;
-      _furiganaDisplayMode =
-          prefs.getString('furiganaDisplayMode') ?? 'parentheses';
       _isLoading = false;
     });
   }
@@ -127,7 +124,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             title: Text(lang.nativeName),
                             subtitle: Text(lang.name),
                             onTap: () {
-                              // TranslationService???占쎌뼱 肄붾뱶 ?占??
+                              // TranslationService???�어 코드 ?�??
                               TranslationService.instance.setLanguage(
                                 lang.code,
                               );
@@ -202,35 +199,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onChanged: (value) {
                 setState(() => _fontSize = value);
                 _saveSetting('wordFontSize', value);
-              },
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.text_format),
-            title: Text(l10n.furiganaDisplayMode),
-            subtitle: Text(
-              _furiganaDisplayMode == 'parentheses'
-                  ? l10n.parenthesesExample
-                  : l10n.furiganaExample,
-            ),
-            trailing: DropdownButton<String>(
-              value: _furiganaDisplayMode,
-              items: [
-                DropdownMenuItem(
-                  value: 'parentheses',
-                  child: Text(l10n.parenthesesMode),
-                ),
-                DropdownMenuItem(
-                  value: 'furigana',
-                  child: Text(l10n.furiganaMode),
-                ),
-              ],
-              onChanged: (value) {
-                if (value != null) {
-                  setState(() => _furiganaDisplayMode = value);
-                  _saveSetting('furiganaDisplayMode', value);
-                  DisplayService.instance.setDisplayMode(value);
-                }
               },
             ),
           ),
