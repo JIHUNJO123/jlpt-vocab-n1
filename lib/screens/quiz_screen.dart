@@ -38,7 +38,7 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _loadWords() async {
-    // JSON?占쎌꽌 ?占쎌뼱 濡쒕뱶 (?占쎌옣 踰덉뿭 ?占쏀븿)
+    // JSON??�쎌�???�쎌�?濡쒕�?(??�쎌??踰덉�???��?�?
     final jsonWords = await DatabaseHelper.instance.getWordsWithTranslations();
 
     List<Word> words;
@@ -57,10 +57,10 @@ class _QuizScreenState extends State<QuizScreen> {
     await translationService.init();
     final langCode = translationService.currentLanguage;
 
-    // 紐⑤뱺 ?占쎌뼱???占???占쎌옣 踰덉뿭 濡쒕뱶 (?占쎈떟 ?占쏀깮吏??踰덉뿭?占쎌뼱????
+    // 紐⑤�???�쎌�????????�쎌??踰덉�?濡쒕�?(??�쎈????��?�?��??踰덉�??�쎌�????
     if (translationService.needsTranslation) {
       for (var word in words) {
-        // ?占쎌옣 踰덉뿭占??占쎌씤 (API ?占쎌텧 ?占쎌쓬)
+        // ??�쎌??踰덉�?��???�쎌??(API ??�쎌????�쎌??
         final embeddedTranslation = word.getEmbeddedTranslation(
           langCode,
           'definition',
@@ -68,7 +68,7 @@ class _QuizScreenState extends State<QuizScreen> {
         if (embeddedTranslation != null && embeddedTranslation.isNotEmpty) {
           _translatedDefinitions[word.id] = embeddedTranslation;
         }
-        // ?占쎌옣 踰덉뿭 ?占쎌쑝占??占쎌뼱 ?占쎈낯 ?占쎌슜 (API ?占쎌텧 ?占쏀븿 - ?占쎌쫰 ?占쎈룄 ?占쎌꽑)
+        // ??�쎌??踰덉�???�쎌?�占???�쎌�???�쎈????�쎌??(API ??�쎌????��?�?- ??�쎌�???�쎈�???�쎌�?
       }
     }
 
@@ -326,26 +326,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Theme.of(
-                          context,
-                        ).primaryColor.withAlpha((0.1 * 255).toInt()),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        currentWord.level,
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
+                    // Level badge removed for single-level app
                     Text(
                       _quizType == QuizType.wordToMeaning
                           ? currentWord.getDisplayWord(displayMode: DisplayService.instance.displayMode)
