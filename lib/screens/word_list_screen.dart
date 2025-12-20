@@ -481,7 +481,14 @@ class _WordListScreenState extends State<WordListScreen> {
   }
 
   Widget _buildListView() {
-    return ListView.builder(
+    return NotificationListener<ScrollNotification>(
+      onNotification: (scrollNotification) {
+        if (scrollNotification is ScrollEndNotification) {
+          _saveScrollPosition(_listScrollController.offset);
+        }
+        return false;
+      },
+      child: ListView.builder(
       controller: _listScrollController,
       padding: const EdgeInsets.all(16),
       itemCount: _words.length,
@@ -572,6 +579,7 @@ class _WordListScreenState extends State<WordListScreen> {
           ),
         );
       },
+      ),
     );
   }
 
