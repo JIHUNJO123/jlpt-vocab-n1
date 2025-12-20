@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+﻿import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -124,7 +124,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             title: Text(lang.nativeName),
                             subtitle: Text(lang.name),
                             onTap: () {
-                              // TranslationService???�어 코드 ?�??
+                              // TranslationService???�어 코드 ?�??
                               TranslationService.instance.setLanguage(
                                 lang.code,
                               );
@@ -259,8 +259,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: const Text('Marketing'),
             trailing: const Icon(Icons.open_in_new),
             onTap: () async {
-              const url =
-                  'https://jihunjo123.github.io/jlpt-step-apps/marketing-n5-n3.html';
+              final langCode = TranslationService.instance.currentLanguage;
+              String suffix = '';
+              if (langCode == 'ko') suffix = '-ko';
+              else if (langCode == 'zh') suffix = '-zh';
+              final url = 'https://jihunjo123.github.io/jlpt-step-apps/marketing-n1$suffix.html';
               final uri = Uri.parse(url);
               if (await canLaunchUrl(uri)) {
                 await launchUrl(uri, mode: LaunchMode.externalApplication);
@@ -272,8 +275,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: const Text('Support'),
             trailing: const Icon(Icons.open_in_new),
             onTap: () async {
-              const url =
-                  'https://jihunjo123.github.io/jlpt-step-apps/support-n5-n3.html';
+              final langCode = TranslationService.instance.currentLanguage;
+              String suffix = '';
+              if (langCode == 'ko') suffix = '-ko';
+              else if (langCode == 'zh') suffix = '-zh';
+              final url = 'https://jihunjo123.github.io/jlpt-step-apps/support-n1$suffix.html';
               final uri = Uri.parse(url);
               if (await canLaunchUrl(uri)) {
                 await launchUrl(uri, mode: LaunchMode.externalApplication);

@@ -1,25 +1,25 @@
 ﻿import 'dart:convert';
 
-/// ?⑥뼱 紐⑤뜽 (JLPT ?숈뒿??- ?쇰낯???⑥뼱??
-/// ?⑥뼱 湲곕낯 ?뺣낫 + ?꾨쿋??踰덉뿭 + ?숈쟻 踰덉뿭
+/// ?�어 모델 (JLPT ?�습??- ?�본???�어??
+/// ?�어 기본 ?�보 + ?�베??번역 + ?�적 번역
 class Word {
   final int id;
-  final String word; // ?꾩껜 ?⑥뼱 (?쒖옄+?덈씪媛???쇳빀)
-  final String? kanji; // ?쒖옄 遺遺?
-  final String? hiragana; // ?덈씪媛???쎄린
+  final String word; // ?�체 ?�어 (?�자+?�라가???�합)
+  final String? kanji; // ?�자 부�?
+  final String? hiragana; // ?�라가???�기
   final String
-  level; // JLPT ?덈꺼: N5, N4, N3, N2, N1
+  level; // JLPT ?�벨: N5, N4, N3, N2, N1
   final String partOfSpeech;
-  final String definition; // ?占쎌뼱 ?占쎌쓽
-  final String example; // ?占쎌뼱 ?占쎈Ц
+  final String definition; // ?�어 ?�의
+  final String example; // ?�어 ?�문
   final String
-  category; // 移댄뀒怨좊━: Academic, Environment, Technology, Health, Education ??
+  category; // 카테고리: Academic, Environment, Technology, Health, Education ??
   bool isFavorite;
 
-  // ?占쎌옣 踰덉뿭 ?占쎌씠??(words.json?占쎌꽌 濡쒕뱶)
+  // ?�장 번역 ?�이??(words.json?�서 로드)
   final Map<String, Map<String, String>>? translations;
 
-  // 踰덉뿭???占쎌뒪??(?占쏙옙??占쎌뿉 ?占쎌젙??
+  // 번역???�스??(?��??�에 ?�정??
   String? translatedDefinition;
   String? translatedExample;
 
@@ -39,7 +39,7 @@ class Word {
     this.translatedExample,
   });
 
-  /// ?占쎌옣 踰덉뿭 媛?占쎌삤占?
+  /// ?�장 번역 가?�오�?
   String? getEmbeddedTranslation(String langCode, String fieldType) {
     if (translations == null) return null;
     final langData = translations![langCode];
@@ -47,12 +47,12 @@ class Word {
     return langData[fieldType];
   }
 
-  /// JSON?占쎌꽌 ?占쎌꽦 (?占쎌뼱 ?占쎈낯 + ?占쎌옣 踰덉뿭)
+  /// JSON?�서 ?�성 (?�어 ?�본 + ?�장 번역)
   factory Word.fromJson(Map<String, dynamic> json) {
-    // translations ?占쎌떛 (??媛吏 ?占쎌떇 吏??
+    // translations ?�싱 (??가지 ?�식 지??
     Map<String, Map<String, String>>? translations;
 
-    // ?占쎌떇 1: translations 媛앹껜
+    // ?�식 1: translations 객체
     if (json['translations'] != null) {
       translations = {};
       (json['translations'] as Map<String, dynamic>).forEach((langCode, data) {
@@ -65,7 +65,7 @@ class Word {
       });
     }
 
-    // ?占쎌떇 2: flat ?占쎌떇 (definition_ja, example_ja ??
+    // ?�식 2: flat ?�식 (definition_ja, example_ja ??
     final langCodes = [
       'ko',
       'ja',
@@ -86,7 +86,7 @@ class Word {
       final exKey = 'example_$lang';
       if (json[defKey] != null || json[exKey] != null) {
         translations ??= {};
-        // zh_cn -> zh占?留ㅽ븨
+        // zh_cn -> zh�?매핑
         final normalizedLang = lang == 'zh_cn' ? 'zh' : lang;
         translations[normalizedLang] = {
           'definition': json[defKey]?.toString() ?? '',
@@ -110,9 +110,9 @@ class Word {
     );
   }
 
-  /// DB 留듭뿉???占쎌꽦 (translations JSON ?占쎌떛 ?占쏀븿)
+  /// DB 맵에???�성 (translations JSON ?�싱 ?�함)
   factory Word.fromDb(Map<String, dynamic> json) {
-    // DB?占쎌꽌 translations ?占쎈뱶 ?占쎌떛
+    // DB?�서 translations ?�드 ?�싱
     Map<String, Map<String, String>>? translations;
     if (json['translations'] != null && json['translations'] is String) {
       try {
@@ -161,7 +161,7 @@ class Word {
     };
   }
 
-  /// 踰덉뿭???占쎌쓽 媛?占쎌삤占?(踰덉뿭 ?占쎌쑝占??占쎌뼱 ?占쎈낯)
+  /// 번역???�의 가?�오�?(번역 ?�으�??�어 ?�본)
   String getDefinition(bool useTranslation) {
     if (useTranslation &&
         translatedDefinition != null &&
@@ -171,7 +171,7 @@ class Word {
     return definition;
   }
 
-  /// 踰덉뿭???占쎈Ц 媛?占쎌삤占?(踰덉뿭 ?占쎌쑝占??占쎌뼱 ?占쎈낯)
+  /// 번역???�문 가?�오�?(번역 ?�으�??�어 ?�본)
   String getExample(bool useTranslation) {
     if (useTranslation &&
         translatedExample != null &&
@@ -181,15 +181,15 @@ class Word {
     return example;
   }
 
-  /// ?쒖옄? ?덈씪媛?섎? ?④퍡 ?쒖떆 (?쒖떆 諛⑹떇???곕씪)
-  /// [displayMode]: 'parentheses' (愿꾪샇 蹂묎린) ?먮뒗 'furigana' (?꾨━媛??
+  /// ?�자?� ?�라가?��? ?�께 ?�시 (?�시 방식???�라)
+  /// [displayMode]: 'parentheses' (괄호 병기) ?�는 'furigana' (?�리가??
   String getDisplayWord({String displayMode = 'parentheses'}) {
-    if (kanji != null && hiragana != null && kanji!.isNotEmpty && hiragana!.isNotEmpty) {
+    if (kanji != null && hiragana != null && kanji!.isNotEmpty && hiragana!.isNotEmpty && kanji != hiragana) {
       if (displayMode == 'furigana') {
-        // ?꾨━媛??諛⑹떇: 繇잆겧??[?잆겧?귙겗]
+        // ?�리가??방식: 食べ??[?�べ?�の]
         return '$kanji [$hiragana]';
       } else {
-        // 愿꾪샇 蹂묎린 諛⑹떇: 繇잆겧??(?잆겧?귙겗)
+        // 괄호 병기 방식: 食べ??(?�べ?�の)
         return '$kanji ($hiragana)';
       }
     }
