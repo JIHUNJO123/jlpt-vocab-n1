@@ -334,9 +334,8 @@ class _WordListScreenState extends State<WordListScreen> {
         centerTitle: true,
         actions: [
           // Band ë°°ì? ?œì‹œ ? ê? ë²„íŠ¼ (All Words ë¦¬ìŠ¤?¸ì—?œë§Œ)
-          if (widget.level == null &&
-              !widget.isFlashcardMode &&
-              _words.isNotEmpty)
+          // Band badge button - disabled for single-level N1 app
+          if (false)
             IconButton(
               icon: Icon(
                 _showBandBadge ? Icons.label : Icons.label_off,
@@ -349,8 +348,8 @@ class _WordListScreenState extends State<WordListScreen> {
                 });
               },
             ),
-          // Band filter button (All Words?€ Flashcard ëª¨ë“œ ëª¨ë‘?ì„œ ?¬ìš© ê°€??
-          if (widget.level == null && _words.isNotEmpty)
+          // Band filter button - disabled for single-level N1 app
+          if (false)
             IconButton(
               icon: Icon(
                 Icons.filter_list,
