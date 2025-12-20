@@ -320,7 +320,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: Text(
               PurchaseService.instance.getRemoveAdsPrice() ??
                   (PurchaseService.instance.isAvailable
-                      ? '${l10n.loading} (Products: ${PurchaseService.instance.products.length})'
+                      ? l10n.loading
                       : '${l10n.notAvailable} - Store not available'),
             ),
             trailing: ElevatedButton(

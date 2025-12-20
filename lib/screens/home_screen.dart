@@ -249,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      "\u{1F4C5} `${l10n.todayWord}",
+                      "\u{1F4C5} ${l10n.todayWord}",
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
