@@ -38,6 +38,9 @@ class _WordListScreenState extends State<WordListScreen> {
   Map<int, String> _translatedDefinitions = {};
   Map<int, String> _translatedExamples = {};
 
+  String get _scrollOffsetKey =>
+      'word_list_scroll_offset_${widget.level ?? 'all'}';
+  
   String get _positionKey =>
       'word_list_position_${widget.level ?? 'all'}_${widget.isFlashcardMode ? 'flashcard' : 'list'}';
 
@@ -49,7 +52,22 @@ class _WordListScreenState extends State<WordListScreen> {
     _loadBannerAd();
     _loadInterstitialAd();
     _loadFontSize();
+    _restoreScrollPosition();
   }
+
+  Future<void> _restoreScrollPosition() async {
+    if (widget.isFlashcardMode) return;
+    final prefs = await SharedPreferences.getInstance();
+    final offset = prefs.getDouble(_scrollOffsetKey) ?? 0.0;
+    if (offset > 0 && _listScrollController.hasClients) {
+      _listScrollController.jumpTo(offset);
+    } else if (offset > 0) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_listScrollController.hasClients && mounted) {
+          _listScrollController.jumpTo(offset);
+        }
+      });
+    }
 
   Future<void> _loadInterstitialAd() async {
     final adService = AdService.instance;
@@ -285,12 +303,20 @@ class _WordListScreenState extends State<WordListScreen> {
   @override
   void dispose() {
     _pageController.dispose();
+    if (!widget.isFlashcardMode && _listScrollController.hasClients) {
+      _saveScrollPosition(_listScrollController.offset);
+    }
     _listScrollController.dispose();
     AdService.instance.disposeBannerAd();
     if (widget.isFlashcardMode) {
       _savePosition(_currentFlashcardIndex);
     }
     super.dispose();
+  }
+
+  Future<void> _saveScrollPosition(double offset) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble(_scrollOffsetKey, offset);
   }
 
   @override
