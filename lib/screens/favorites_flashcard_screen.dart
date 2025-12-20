@@ -1,6 +1,6 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
+import 'package:jlpt_vocab_app/l10n/generated/app_localizations.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
 import '../services/display_service.dart';
@@ -39,7 +39,7 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
     if (translationService.needsTranslation) {
       final langCode = translationService.currentLanguage;
       for (var word in _favorites) {
-        // ?占쎌옣 踰덉뿭占??占쎌슜 (API ?占쎌텧 ?占쎌쓬)
+        // ?�장 번역�??�용 (API ?�출 ?�음)
         final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
         final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
 
@@ -189,25 +189,26 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 12,
-                                      vertical: 6,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withAlpha(
-                                        (0.2 * 255).toInt(),
+                                  if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown')
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 6,
                                       ),
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                    child: Text(
-                                      word.partOfSpeech,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withAlpha(
+                                          (0.2 * 255).toInt(),
+                                        ),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: Text(
+                                        word.partOfSpeech,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
-                                  ),
                                   IconButton(
                                     icon: Icon(
                                       word.isFavorite
@@ -366,4 +367,3 @@ class _FavoritesFlashcardScreenState extends State<FavoritesFlashcardScreen> {
     );
   }
 }
-

@@ -1,5 +1,5 @@
-﻿import 'package:flutter/material.dart';
-import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
+import 'package:flutter/material.dart';
+import 'package:jlpt_vocab_app/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
@@ -32,7 +32,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
 
     if (!translationService.needsTranslation) return;
 
-    // ?占쎌옣 踰덉뿭占??占쎌슜 (API ?占쎌텧 ?占쎌쓬)
+    // ?�장 번역�??�용 (API ?�출 ?�음)
     final langCode = translationService.currentLanguage;
     final embeddedDef = _word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = _word.getEmbeddedTranslation(langCode, 'example');
@@ -141,7 +141,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            _word.partOfSpeech,
+                            _word.partOfSpeech.isEmpty || _word.partOfSpeech == 'unknown' ? _word.level : _word.partOfSpeech,
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -176,7 +176,9 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                     ),
                     const SizedBox(height: 20),
                     Text(
-                      _word.getDisplayWord(displayMode: DisplayService.instance.displayMode),
+                      _word.getDisplayWord(
+                        displayMode: DisplayService.instance.displayMode,
+                      ),
                       style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
@@ -189,7 +191,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 24),
 
-            // Definition Section - 踰덉뿭 ??(??湲??, ?占쎌뼱 ?占쎈옒 (?占쎌깋)
+            // Definition Section - 번역 ??(??글??, ?�어 ?�래 (?�색)
             _buildDefinitionSection(
               title: l10n.definition,
               icon: Icons.book,
@@ -198,20 +200,21 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Example Section - ?占쎌뼱 ??(寃?占??, 踰덉뿭 ?占쎈옒 (?占쎌깋)
-            _buildExampleSection(
-              title: l10n.example,
-              icon: Icons.format_quote,
-              content: _word.example,
-              translation: _translatedExample,
-            ),
+            // Example Section - 예문이 있을 때만 표시
+            if (_word.example.isNotEmpty)
+              _buildExampleSection(
+                title: l10n.example,
+                icon: Icons.format_quote,
+                content: _word.example,
+                translation: _translatedExample,
+              ),
           ],
         ),
       ),
     );
   }
 
-  // ?占쎌쓽?? 踰덉뿭 癒쇽옙? (??湲??, ?占쎌뼱 ?占쎈옒 (?占쎌깋)
+  // ?�의?? 번역 먼�? (??글??, ?�어 ?�래 (?�색)
   Widget _buildDefinitionSection({
     required String title,
     required IconData icon,
@@ -241,8 +244,8 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            // 踰덉뿭???占쎌쑝占?踰덉뿭 癒쇽옙? (??湲??, ?占쎌뼱 ?占쎈옒 (?占쎌깋)
-            if (translation != null) ...[
+            // 번역이 있으면 번역 먼저 (큰 글씨), 영어 아래 (작은 글씨)
+            if (translation != null && translation.isNotEmpty) ...[
               Text(
                 translation,
                 style: const TextStyle(
@@ -256,7 +259,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                 content,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.grey[600],
+                  color: Colors.grey[800],
                   height: 1.5,
                 ),
               ),
@@ -268,7 +271,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 
-  // ?占쎈Ц?? ?占쎌뼱 癒쇽옙? (寃?占??, 踰덉뿭 ?占쎈옒 (?占쎌깋)
+  // ?�문?? ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
   Widget _buildExampleSection({
     required String title,
     required IconData icon,
@@ -298,7 +301,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            // ?占쎌뼱 癒쇽옙? (寃?占??, 踰덉뿭 ?占쎈옒 (?占쎌깋)
+            // ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
             Text(
               content,
               style: const TextStyle(
@@ -324,4 +327,3 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 }
-

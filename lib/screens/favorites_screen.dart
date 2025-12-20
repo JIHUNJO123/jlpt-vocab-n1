@@ -1,5 +1,5 @@
-﻿import 'package:flutter/material.dart';
-import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
+import 'package:flutter/material.dart';
+import 'package:jlpt_vocab_app/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
@@ -16,12 +16,12 @@ class FavoritesScreen extends StatefulWidget {
 
 class _FavoritesScreenState extends State<FavoritesScreen> {
   List<Word> _favorites = [];
-  List<Word> _allFavorites = []; // ?占쎈낯 利먭꺼李얘린 紐⑸줉
+  List<Word> _allFavorites = []; // ?�본 즐겨찾기 목록
   bool _isLoading = true;
   Map<int, String> _translatedDefinitions = {};
   bool _showNativeLanguage = true;
-  bool _showBandBadge = true; // Band 諛곤옙? ?占쎌떆 ?占쏙옙?
-  String? _selectedBandFilter; // Band ?占쏀꽣
+  bool _showBandBadge = true; // Band 배�? ?�시 ?��?
+  String? _selectedBandFilter; // Band ?�터
 
   @override
   void initState() {
@@ -37,12 +37,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     final langCode = translationService.currentLanguage;
 
     if (translationService.needsTranslation) {
-      // JSON?占쎌꽌 ?占쎌옣 踰덉뿭 濡쒕뱶
+      // JSON?�서 ?�장 번역 로드
       final jsonWords =
           await DatabaseHelper.instance.getWordsWithTranslations();
 
       for (var word in favorites) {
-        // ?占쎌옣 踰덉뿭占??占쎌슜 (API ?占쎌텧 ?占쎌쓬)
+        // ?�장 번역�??�용 (API ?�출 ?�음)
         final jsonWord = jsonWords.firstWhere(
           (w) =>
               w.id == word.id ||
@@ -84,7 +84,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     final l10n = AppLocalizations.of(context)!;
     final bands = [
       {'level': null, 'name': l10n.allWords, 'color': Colors.grey},
-      {'level': 'N1', 'name': 'N1', 'color': Colors.red},
+      {'level': 'N5', 'name': 'N5', 'color': Colors.green},
+      {'level': 'N4', 'name': 'N4', 'color': Colors.blue},
+      {'level': 'N3', 'name': 'N3', 'color': Colors.orange},
     ];
 
     showModalBottomSheet(
@@ -194,7 +196,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         ),
         centerTitle: true,
         actions: [
-          // Band 諛곤옙? ?占쏙옙?
+          // Band 배�? ?��?
           if (_allFavorites.isNotEmpty)
             IconButton(
               icon: Icon(
@@ -208,7 +210,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 });
               },
             ),
-          // Band ?占쏀꽣
+          // Band ?�터
           if (_allFavorites.isNotEmpty)
             IconButton(
               icon: Icon(
@@ -346,14 +348,15 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 4),
-                            Text(
-                              word.partOfSpeech,
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 12,
+                            if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                              Text(
+                                word.partOfSpeech,
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 4),
+                              const SizedBox(height: 4),
+                            ],
                             Text(
                               definition,
                               maxLines: 2,
@@ -373,5 +376,3 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     );
   }
 }
-
-

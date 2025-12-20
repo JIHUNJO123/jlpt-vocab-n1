@@ -1,6 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
+import 'package:jlpt_vocab_app/l10n/generated/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../db/database_helper.dart';
@@ -224,8 +224,6 @@ class _WordListScreenState extends State<WordListScreen> {
       {'level': 'N5', 'name': 'N5', 'color': Colors.green},
       {'level': 'N4', 'name': 'N4', 'color': Colors.blue},
       {'level': 'N3', 'name': 'N3', 'color': Colors.orange},
-      {'level': 'N2', 'name': 'N2', 'color': Colors.purple},
-      {'level': 'N1', 'name': 'N1', 'color': Colors.red},
     ];
 
     showModalBottomSheet(
@@ -309,16 +307,17 @@ class _WordListScreenState extends State<WordListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: widget.isFlashcardMode
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () async {
-                  if (await _handleBackPress()) {
-                    if (context.mounted) Navigator.of(context).pop();
-                  }
-                },
-              )
-            : null,
+        leading:
+            widget.isFlashcardMode
+                ? IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () async {
+                    if (await _handleBackPress()) {
+                      if (context.mounted) Navigator.of(context).pop();
+                    }
+                  },
+                )
+                : null,
         title: Column(
           children: [
             Text(title),
@@ -482,7 +481,9 @@ class _WordListScreenState extends State<WordListScreen> {
               children: [
                 Expanded(
                   child: Text(
-                    word.getDisplayWord(displayMode: DisplayService.instance.displayMode),
+                    word.getDisplayWord(
+                      displayMode: DisplayService.instance.displayMode,
+                    ),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16 * _wordFontSize,
@@ -515,15 +516,16 @@ class _WordListScreenState extends State<WordListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      word.partOfSpeech,
-                      style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
+                if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                  Row(
+                    children: [
+                      Text(
+                        word.partOfSpeech,
+                        style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                ],
                 Text(
                   definition,
                   maxLines: 2,
@@ -621,25 +623,26 @@ class _WordListScreenState extends State<WordListScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 6,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withAlpha(
-                                      (0.2 * 255).toInt(),
+                                if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown')
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 6,
                                     ),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Text(
-                                    word.partOfSpeech,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withAlpha(
+                                        (0.2 * 255).toInt(),
+                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Text(
+                                      word.partOfSpeech,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
-                                ),
                                 IconButton(
                                   icon: Icon(
                                     word.isFavorite
@@ -656,7 +659,10 @@ class _WordListScreenState extends State<WordListScreen> {
                             ),
                             const Spacer(),
                             Text(
-                              word.getDisplayWord(displayMode: DisplayService.instance.displayMode),
+                              word.getDisplayWord(
+                                displayMode:
+                                    DisplayService.instance.displayMode,
+                              ),
                               style: TextStyle(
                                 fontSize: 28 * _wordFontSize,
                                 fontWeight: FontWeight.bold,
@@ -800,5 +806,3 @@ class _WordListScreenState extends State<WordListScreen> {
     );
   }
 }
-
-
