@@ -267,4 +267,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get furiganaExample => '예: 食べ物 [たべもの]';
+
+  @override
+  String get marketing => '마케팅';
+
+  @override
+  String get support => '지원';
 }

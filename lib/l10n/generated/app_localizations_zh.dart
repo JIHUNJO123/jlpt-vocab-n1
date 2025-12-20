@@ -267,4 +267,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get furiganaExample => '例：食べ物 [たべもの]';
+
+  @override
+  String get marketing => '营销';
+
+  @override
+  String get support => '支持';
 }

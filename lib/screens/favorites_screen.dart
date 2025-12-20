@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
@@ -42,7 +42,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           await DatabaseHelper.instance.getWordsWithTranslations();
 
       for (var word in favorites) {
-        // ?�장 번역�??�용 (API ?�출 ?�음)
+        // ?�장 번역�??�용 (API ?�출 ?�음)
         final jsonWord = jsonWords.firstWhere(
           (w) =>
               w.id == word.id ||
@@ -197,7 +197,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         centerTitle: true,
         actions: [
           // Band 배�? ?��?
-          if (_allFavorites.isNotEmpty)
+          if (false) // Disabled for single-level app
             IconButton(
               icon: Icon(
                 _showBandBadge ? Icons.label : Icons.label_off,
@@ -211,7 +211,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               },
             ),
           // Band ?�터
-          if (_allFavorites.isNotEmpty)
+          if (false) // Band filter disabled
             IconButton(
               icon: Icon(
                 Icons.filter_list,

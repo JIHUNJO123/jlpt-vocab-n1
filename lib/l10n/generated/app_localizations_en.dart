@@ -267,4 +267,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get furiganaExample => 'e.g. 食べ物 [たべもの]';
+
+  @override
+  String get marketing => 'Marketing';
+
+  @override
+  String get support => 'Support';
 }

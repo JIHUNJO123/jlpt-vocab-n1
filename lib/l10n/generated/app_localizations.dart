@@ -612,6 +612,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'e.g. 食べ物 [たべもの]'**
   String get furiganaExample;
+
+  /// No description provided for @marketing.
+  ///
+  /// In en, this message translates to:
+  /// **'Marketing'**
+  String get marketing;
+
+  /// No description provided for @support.
+  ///
+  /// In en, this message translates to:
+  /// **'Support'**
+  String get support;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

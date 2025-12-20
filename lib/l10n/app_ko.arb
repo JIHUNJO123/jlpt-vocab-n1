@@ -93,4 +93,7 @@
   "furiganaMode": "후리가나",
   "parenthesesExample": "예: 食べ物 (たべもの)",
   "furiganaExample": "예: 食べ物 [たべもの]"
+,
+  "marketing": "마케팅",
+  "support": "지원"
 }

@@ -256,7 +256,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           ListTile(
             leading: const Icon(Icons.campaign),
-            title: const Text('Marketing'),
+            title: Text(AppLocalizations.of(context)!.marketing),
             trailing: const Icon(Icons.open_in_new),
             onTap: () async {
               final langCode = TranslationService.instance.currentLanguage;
@@ -272,7 +272,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           ListTile(
             leading: const Icon(Icons.help_outline),
-            title: const Text('Support'),
+            title: Text(AppLocalizations.of(context)!.support),
             trailing: const Icon(Icons.open_in_new),
             onTap: () async {
               final langCode = TranslationService.instance.currentLanguage;
