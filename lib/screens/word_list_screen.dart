@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +31,7 @@ class _WordListScreenState extends State<WordListScreen> {
   bool _isBannerAdLoaded = false;
   double _wordFontSize = 1.0;
   bool _showNativeLanguage = true;
-  bool _showBandBadge = true; // Band 諛곗? ?쒖떆 ?щ?
+  bool _showBandBadge = true; // Band 배�? ?�시 ?��?
 
   final ScrollController _listScrollController = ScrollController();
 
@@ -52,7 +52,6 @@ class _WordListScreenState extends State<WordListScreen> {
     _loadBannerAd();
     _loadInterstitialAd();
     _loadFontSize();
-    _restoreScrollPosition();
   }
 
   Future<void> _restoreScrollPosition() async {
@@ -125,6 +124,9 @@ class _WordListScreenState extends State<WordListScreen> {
         _currentFlashcardIndex = position;
         _pageController = PageController(initialPage: position);
         setState(() {});
+      } else {
+        // Restore scroll position for list mode
+        _restoreScrollPosition();
       }
     }
   }
@@ -158,7 +160,7 @@ class _WordListScreenState extends State<WordListScreen> {
     if (!translationService.needsTranslation) return;
     if (!mounted) return;
 
-    // ?댁옣 踰덉뿭留??ъ슜 (API ?몄텧 ?놁쓬)
+    // ?�장 번역�??�용 (API ?�출 ?�음)
     final langCode = translationService.currentLanguage;
     final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
@@ -360,7 +362,7 @@ class _WordListScreenState extends State<WordListScreen> {
         ),
         centerTitle: true,
         actions: [
-          // Band 諛곗? ?쒖떆 ?좉? 踰꾪듉 (All Words 由ъ뒪?몄뿉?쒕쭔)
+          // Band 배�? ?�시 ?��? 버튼 (All Words 리스?�에?�만)
           // Band badge button - disabled for single-level N1 app
           if (false)
             IconButton(
@@ -516,7 +518,7 @@ class _WordListScreenState extends State<WordListScreen> {
                     ),
                   ),
                 ),
-                // Band 諛곗?: All Words?먯꽌 ?좉? 媛??
+                // Band 배�?: All Words?�서 ?��? �??
                 if (false) // Level badge disabled for single-level app
                   Container(
                     padding: const EdgeInsets.symmetric(
