@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jlpt_vocab_app/l10n/generated/app_localizations.dart';
+import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
@@ -42,7 +42,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           await DatabaseHelper.instance.getWordsWithTranslations();
 
       for (var word in favorites) {
-        // ?�장 번역�??�용 (API ?�출 ?�음)
+        // ?�장 번역�??�용 (API ?�출 ?�음)
         final jsonWord = jsonWords.firstWhere(
           (w) =>
               w.id == word.id ||
