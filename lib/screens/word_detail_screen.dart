@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jlpt_vocab_app/l10n/generated/app_localizations.dart';
+import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
 import '../services/translation_service.dart';
@@ -32,7 +32,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
 
     if (!translationService.needsTranslation) return;
 
-    // ?�장 번역�??�용 (API ?�출 ?�음)
+    // ?�장 번역�??�용 (API ?�출 ?�음)
     final langCode = translationService.currentLanguage;
     final embeddedDef = _word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = _word.getEmbeddedTranslation(langCode, 'example');
@@ -200,7 +200,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Example Section - 예문이 있을 때만 표시
+            // Example Section - ?�문???�을 ?�만 ?�시
             if (_word.example.isNotEmpty)
               _buildExampleSection(
                 title: l10n.example,
@@ -244,7 +244,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            // 번역이 있으면 번역 먼저 (큰 글씨), 영어 아래 (작은 글씨)
+            // 번역???�으�?번역 먼�? (??글??, ?�어 ?�래 (?��? 글??
             if (translation != null && translation.isNotEmpty) ...[
               Text(
                 translation,
@@ -271,7 +271,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 
-  // ?�문?? ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
+  // ?�문?? ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
   Widget _buildExampleSection({
     required String title,
     required IconData icon,
@@ -301,7 +301,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            // ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
+            // ?�어 먼�? (검?�??, 번역 ?�래 (?�색)
             Text(
               content,
               style: const TextStyle(
