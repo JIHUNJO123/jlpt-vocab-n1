@@ -1,4 +1,4 @@
-Ôªøimport 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../db/database_helper.dart';
 import '../models/word.dart';
@@ -16,12 +16,12 @@ class FavoritesScreen extends StatefulWidget {
 
 class _FavoritesScreenState extends State<FavoritesScreen> {
   List<Word> _favorites = [];
-  List<Word> _allFavorites = []; // ?ÔøΩÎ≥∏ Ï¶êÍ≤®Ï∞æÍ∏∞ Î™©Î°ù
+  List<Word> _allFavorites = []; // ??∫ª ¡Ò∞‹√£±‚ ∏Ò∑œ
   bool _isLoading = true;
   Map<int, String> _translatedDefinitions = {};
   bool _showNativeLanguage = true;
-  bool _showBandBadge = true; // Band Î∞∞ÔøΩ? ?ÔøΩÏãú ?ÔøΩÔøΩ?
-  String? _selectedBandFilter; // Band ?ÔøΩÌÑ∞
+  bool _showBandBadge = true; // Band πË?? ??Ω√ ????
+  String? _selectedBandFilter; // Band ??≈Õ
 
   @override
   void initState() {
@@ -37,12 +37,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     final langCode = translationService.currentLanguage;
 
     if (translationService.needsTranslation) {
-      // JSON?ÔøΩÏÑú ?ÔøΩÏû• Î≤àÏó≠ Î°úÎìú
+      // JSON??º≠ ??¿Â π¯ø™ ∑ŒµÂ
       final jsonWords =
           await DatabaseHelper.instance.getWordsWithTranslations();
 
       for (var word in favorites) {
-        // ?ÔøΩÏû• Î≤àÏó≠ÔøΩ??ÔøΩÏö© (API ?ÔøΩÏ∂ú ?ÔøΩÏùå)
+        // ??¿Â π¯ø™????øÎ (API ??√‚ ??¿Ω)
         final jsonWord = jsonWords.firstWhere(
           (w) =>
               w.id == word.id ||
@@ -196,7 +196,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         ),
         centerTitle: true,
         actions: [
-          // Band Î∞∞ÔøΩ? ?ÔøΩÔøΩ?
+          // Band πË?? ????
           if (false) // Disabled for single-level app
             IconButton(
               icon: Icon(
@@ -210,7 +210,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 });
               },
             ),
-          // Band ?ÔøΩÌÑ∞
+          // Band ??≈Õ
           if (false) // Band filter disabled
             IconButton(
               icon: Icon(
@@ -348,7 +348,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 4),
-                            if (word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                              Text(
+                            if (false && word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                              Text(
                                 word.partOfSpeech,
                                 style: TextStyle(
                                   color: Colors.grey[600],

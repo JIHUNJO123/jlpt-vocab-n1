@@ -141,7 +141,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
-                            _word.partOfSpeech.isEmpty || _word.partOfSpeech == 'unknown' ? _word.level : _word.partOfSpeech,
+                            _word.level,
                             style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
