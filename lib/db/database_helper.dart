@@ -285,11 +285,6 @@ class DatabaseHelper {
         'assets/data/words_n1.json',
       ];
 
-
-
-
-      ];
-
       for (final file in jsonFiles) {
         try {
           print('Loading JSON file: $file');
