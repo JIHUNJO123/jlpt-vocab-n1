@@ -15,16 +15,16 @@ class AdService {
   InterstitialAd? _interstitialAd;
   bool _isInterstitialAdLoaded = false;
 
-  // JLPT Step N5?밡3 愿묎퀬 ID
+  // JLPT Step N1 광고 ID
   // Android
   static const String _androidBannerId =
-      'ca-app-pub-5837885590326347/6675199844';
+      'ca-app-pub-5837885590326347/2049559122';
   static const String _androidInterstitialId =
-      'ca-app-pub-5837885590326347/5362118174';
+      'ca-app-pub-5837885590326347/6483628156';
   // iOS
-  static const String _iosBannerId = 'ca-app-pub-5837885590326347/9636405103';
+  static const String _iosBannerId = 'ca-app-pub-5837885590326347/2049559122';
   static const String _iosInterstitialId =
-      'ca-app-pub-5837885590326347/6010545938';
+      'ca-app-pub-5837885590326347/6483628156';
 
   String get bannerAdUnitId {
     if (Platform.isAndroid) {
@@ -53,7 +53,6 @@ class AdService {
   Future<void> initialize() async {
     if (_isInitialized) return;
 
-    // 愿묎퀬 ?嫄?援щℓ ?? ???
     final prefs = await SharedPreferences.getInstance();
     _adsRemoved = prefs.getBool('ads_removed') ?? false;
 
@@ -62,17 +61,16 @@ class AdService {
       return;
     }
 
-    // ?????????????愿묎퀬 鍮꾪솢???
     if (kIsWeb || (!Platform.isAndroid && !Platform.isIOS)) {
       _isInitialized = true;
       return;
     }
 
-    // JLPT Step N5?밡3 AdMob App ID
-    final appId = Platform.isAndroid 
-        ? 'ca-app-pub-5837885590326347~5763133926'  // Android
-        : 'ca-app-pub-5837885590326347~8197725571'; // iOS
-    
+    // JLPT Step N1 AdMob App ID
+    final appId = Platform.isAndroid
+        ? 'ca-app-pub-5837885590326347~2753827200'  // Android
+        : 'ca-app-pub-5837885590326347~4163768337'; // iOS
+
     await MobileAds.instance.initialize();
     _isInitialized = true;
   }
@@ -124,7 +122,6 @@ class AdService {
     _isBannerAdLoaded = false;
   }
 
-  // ?硫?愿묎퀬 濡쒕뱶
   Future<void> loadInterstitialAd() async {
     if (_adsRemoved) return;
     if (kIsWeb || (!Platform.isAndroid && !Platform.isIOS)) return;
@@ -142,7 +139,7 @@ class AdService {
             onAdDismissedFullScreenContent: (ad) {
               ad.dispose();
               _isInterstitialAdLoaded = false;
-              loadInterstitialAd(); // ???愿묎퀬 誘몃━ 濡쒕뱶
+              loadInterstitialAd();
             },
             onAdFailedToShowFullScreenContent: (ad, error) {
               ad.dispose();
@@ -159,7 +156,6 @@ class AdService {
     );
   }
 
-  // ?硫?愿묎퀬 ???
   Future<void> showInterstitialAd() async {
     if (_adsRemoved) return;
     if (!_isInterstitialAdLoaded || _interstitialAd == null) return;
@@ -173,7 +169,6 @@ class AdService {
     _isInterstitialAdLoaded = false;
   }
 
-  // 愿묎퀬 ?嫄?援щℓ ???異?
   Future<void> removeAds() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('ads_removed', true);
@@ -182,7 +177,6 @@ class AdService {
     disposeInterstitialAd();
   }
 
-  // 愿묎퀬 ?嫄?蹂듭썝 (IAP 蹂듭썝??
   Future<void> restoreAdsRemoved() async {
     final prefs = await SharedPreferences.getInstance();
     _adsRemoved = prefs.getBool('ads_removed') ?? false;
@@ -192,4 +186,3 @@ class AdService {
     }
   }
 }
-
