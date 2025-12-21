@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "zh",
   "appTitle": "JLPT Step N1",
   "todayWord": "今日单词",
@@ -53,11 +53,11 @@
     }
   },
   "n5": "N5",
-  "n5Desc": "初级 - 500词",
+  "n5Desc": "初级 - 674词",
   "n4": "N4",
-  "n4Desc": "初中级 - 1,000词",
+  "n4Desc": "初中级 - 636词",
   "n3": "N3",
-  "n3Desc": "中级 - 800词",
+  "n3Desc": "中级 - 1,705词",
   "n2": "N2",
   "n2Desc": "中高级 - 1,200词",
   "n1": "N1",
@@ -92,8 +92,10 @@
   "parenthesesMode": "括号标注",
   "furiganaMode": "假名标注",
   "parenthesesExample": "例：食べ物 (たべもの)",
-  "furiganaExample": "例：食べ物 [たべもの]"
-,
+  "furiganaExample": "汉字上方显示假名",
+  "showFuriganaInList": "在单词列表中显示假名",
+  "showFuriganaInListDesc": "在单词列表中的汉字上方显示假名",
   "marketing": "营销",
   "support": "支持"
 }
+
