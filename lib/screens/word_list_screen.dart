@@ -31,7 +31,7 @@ class _WordListScreenState extends State<WordListScreen> {
   bool _isBannerAdLoaded = false;
   double _wordFontSize = 1.0;
   bool _showNativeLanguage = true;
-  bool _showBandBadge = true; // Band 배? ?시 ??
+  bool _showBandBadge = true; // Band �? ?????
 
   final ScrollController _listScrollController = ScrollController();
 
@@ -57,13 +57,11 @@ class _WordListScreenState extends State<WordListScreen> {
   Future<void> _restoreScrollPosition() async {
     if (widget.isFlashcardMode) return;
     final prefs = await SharedPreferences.getInstance();
-    final offset = prefs.getDouble(_scrollOffsetKey) ?? 0.0;
-    if (offset > 0 && _listScrollController.hasClients) {
-      _listScrollController.jumpTo(offset);
-    } else if (offset > 0) {
+    final position = prefs.getInt(_positionKey) ?? 0;
+    if (position > 0) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (_listScrollController.hasClients && mounted) {
-          _listScrollController.jumpTo(offset);
+          _listScrollController.jumpTo(position * 80.0);
         }
       });
     }
@@ -160,7 +158,7 @@ class _WordListScreenState extends State<WordListScreen> {
     if (!translationService.needsTranslation) return;
     if (!mounted) return;
 
-    // ?장 번역??용 (API ?출 ?음)
+    // ???번역????(API ?�????
     final langCode = translationService.currentLanguage;
     final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
@@ -364,7 +362,7 @@ class _WordListScreenState extends State<WordListScreen> {
         ),
         centerTitle: true,
         actions: [
-          // Band 배? ?시 ?? 버튼 (All Words 리스?에?만)
+          // Band �? ????? 버튼 (All Words 리스???�?
           // Band badge button - disabled for single-level N1 app
           if (false)
             IconButton(
@@ -527,7 +525,7 @@ class _WordListScreenState extends State<WordListScreen> {
                     ),
                   ),
                 ),
-                // Band 배?: All Words?서 ?? ??
+                // Band �?: All Words????? ??
                 if (false) // Level badge disabled for single-level app
                   Container(
                     padding: const EdgeInsets.symmetric(
