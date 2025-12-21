@@ -1,4 +1,4 @@
-package com.jhuni.sat_vocab_app
+﻿package com.jhuni.jlpt_vocab_app_n1
 
 import io.flutter.embedding.android.FlutterActivity
 
