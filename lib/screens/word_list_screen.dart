@@ -505,13 +505,15 @@ class _WordListScreenState extends State<WordListScreen> {
             margin: const EdgeInsets.only(bottom: 12),
             child: ListTile(
               onTap: () async {
+                // Create a copy of the list to prevent issues with sorting/filtering
+                final wordListCopy = List<Word>.from(_words);
                 final result = await Navigator.push<int>(
                   context,
                   MaterialPageRoute(
                     builder:
                         (context) => WordDetailScreen(
                           word: word,
-                          wordList: _words,
+                          wordList: wordListCopy,
                           currentIndex: index,
                         ),
                   ),
