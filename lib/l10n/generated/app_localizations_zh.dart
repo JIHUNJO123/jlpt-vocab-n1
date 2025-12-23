@@ -315,4 +315,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get support => '支持';
+
+  @override
+  String get cancel => '取消';
 }

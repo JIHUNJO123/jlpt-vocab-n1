@@ -349,27 +349,14 @@ class _HomeScreenState extends State<HomeScreen> {
           title: l10n.flashcard,
           subtitle: l10n.cardLearning,
           color: Colors.orange,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => const WordListScreen(isFlashcardMode: true),
-              ),
-            );
-          },
+          onTap: () => _showLevelSelectionDialog(isFlashcard: true),
         ),
         _buildMenuCard(
           icon: Icons.quiz,
           title: l10n.quiz,
           subtitle: l10n.testYourself,
           color: Colors.green,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const QuizScreen()),
-            );
-          },
+          onTap: () => _showLevelSelectionDialog(isFlashcard: false),
         ),
         // 문장 퀴즈는 예문 데이터가 없어서 임시로 숨김
         // _buildMenuCard(
@@ -465,6 +452,103 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showLevelSelectionDialog({required bool isFlashcard}) {
+    final l10n = AppLocalizations.of(context)!;
+
+    showDialog(
+      context: context,
+      builder:
+          (context) => AlertDialog(
+            title: Text(isFlashcard ? l10n.flashcard : l10n.quiz),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    alignment: Alignment.center,
+                    child: const Icon(Icons.all_inclusive, color: Colors.white),
+                  ),
+                  title: Text(l10n.allWords),
+                  onTap: () {
+                    Navigator.pop(context);
+                    if (isFlashcard) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  const WordListScreen(isFlashcardMode: true),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizScreen(),
+                        ),
+                      );
+                    }
+                  },
+                ),
+                ListTile(
+                  leading: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    alignment: Alignment.center,
+                    child: const Icon(Icons.favorite, color: Colors.white),
+                  ),
+                  title: Text(l10n.favorites),
+                  subtitle: Text(
+                    l10n.savedWords,
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    if (isFlashcard) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => const WordListScreen(
+                                isFlashcardMode: true,
+                                favoritesOnly: true,
+                              ),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  const QuizScreen(favoritesOnly: true),
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(l10n.cancel),
+              ),
+            ],
+          ),
     );
   }
 }

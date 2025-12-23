@@ -108,5 +108,6 @@
   "collocationQuizDesc": "어울리는 동사 맞추기",
   "selectMatchingVerb": "어울리는 동사를 선택하세요",
   "marketing": "마케팅",
-  "support": "지원"
+  "support": "지원",
+  "cancel": "취소"
 }

@@ -11,8 +11,9 @@ enum QuizType { wordToMeaning, meaningToWord }
 
 class QuizScreen extends StatefulWidget {
   final String? level;
+  final bool favoritesOnly;
 
-  const QuizScreen({super.key, this.level});
+  const QuizScreen({super.key, this.level, this.favoritesOnly = false});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -38,14 +39,19 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _loadWords() async {
-    // JSON??�쎌�???�쎌�?濡쒕�?(??�쎌??踰덉�???��?�?
-    final jsonWords = await DatabaseHelper.instance.getWordsWithTranslations();
-
     List<Word> words;
-    if (widget.level != null) {
-      words = jsonWords.where((w) => w.level == widget.level).toList();
+    if (widget.favoritesOnly) {
+      words = await DatabaseHelper.instance.getFavorites();
     } else {
-      words = jsonWords;
+      // JSON??�쎌�???�쎌�?濡쒕�?(??�쎌??踰덉�???��?�?
+      final jsonWords =
+          await DatabaseHelper.instance.getWordsWithTranslations();
+
+      if (widget.level != null) {
+        words = jsonWords.where((w) => w.level == widget.level).toList();
+      } else {
+        words = jsonWords;
+      }
     }
 
     words.shuffle();
@@ -329,7 +335,9 @@ class _QuizScreenState extends State<QuizScreen> {
                     // Level badge removed for single-level app
                     Text(
                       _quizType == QuizType.wordToMeaning
-                          ? currentWord.getDisplayWord(displayMode: DisplayService.instance.displayMode)
+                          ? currentWord.getDisplayWord(
+                            displayMode: DisplayService.instance.displayMode,
+                          )
                           : (_translatedDefinitions[currentWord.id] ??
                               currentWord.definition),
                       style: TextStyle(
@@ -426,4 +434,3 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 }
-

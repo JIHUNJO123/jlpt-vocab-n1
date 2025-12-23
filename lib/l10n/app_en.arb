@@ -108,5 +108,6 @@
   "collocationQuizDesc": "Match words with verbs",
   "selectMatchingVerb": "Select the matching verb",
   "marketing": "Marketing",
-  "support": "Support"
+  "support": "Support",
+  "cancel": "Cancel"
 }
