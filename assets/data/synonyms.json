@@ -10,7 +10,13 @@
     "meaning2_ko": "해소하다",
     "example": "ストレスを（　）する",
     "correct": 2,
-    "explanation_ko": "스트레스는 '해소'한다. 긴장은 '완화'한다."
+    "explanation_ko": "스트레스는 '해소'한다. 긴장은 '완화'한다.",
+    "meaning1_en": "relieve",
+    "meaning1_zh": "缓解",
+    "meaning2_en": "resolve",
+    "meaning2_zh": "解决",
+    "explanation_en": "Stress is 'resolved'. Tension is 'relieved'.",
+    "explanation_zh": "压力是'解决'的。紧张是'缓解'的。"
   },
   {
     "word1": "確認",
@@ -23,7 +29,13 @@
     "meaning2_ko": "검증하다",
     "example": "データを（　）する",
     "correct": 1,
-    "explanation_ko": "'확인'은 사실을 아는 것이고, '검증'은 진위를 조사하는 것이다."
+    "explanation_ko": "'확인'은 사실을 아는 것이고, '검증'은 진위를 조사하는 것이다.",
+    "meaning1_en": "confirm",
+    "meaning1_zh": "确认",
+    "meaning2_en": "verify",
+    "meaning2_zh": "验证",
+    "explanation_en": "'Confirm' means knowing facts, 'verify' means checking authenticity.",
+    "explanation_zh": "'确认'是知道事实，'验证'是检查真伪。"
   },
   {
     "word1": "導入",
@@ -36,7 +48,13 @@
     "meaning2_ko": "채용하다",
     "example": "新しいシステムを（　）する",
     "correct": 1,
-    "explanation_ko": "'도입'은 새로운 것을 받아들이는 것이고, '채용'은 선택하여 사용하는 것이다."
+    "explanation_ko": "'도입'은 새로운 것을 받아들이는 것이고, '채용'은 선택하여 사용하는 것이다.",
+    "meaning1_en": "introduce",
+    "meaning1_zh": "引入",
+    "meaning2_en": "adopt",
+    "meaning2_zh": "采用",
+    "explanation_en": "'Introduce' means accepting something new, 'adopt' means choosing to use it.",
+    "explanation_zh": "'引入'是接受新事物，'采用'是选择使用。"
   },
   {
     "word1": "進展",
@@ -49,7 +67,13 @@
     "meaning2_ko": "발전하다",
     "example": "プロジェクトの（　）を報告する",
     "correct": 1,
-    "explanation_ko": "'진전'은 진행 상황, '발전'은 성장이나 발전을 의미한다."
+    "explanation_ko": "'진전'은 진행 상황, '발전'은 성장이나 발전을 의미한다.",
+    "meaning1_en": "progress",
+    "meaning1_zh": "进展",
+    "meaning2_en": "develop",
+    "meaning2_zh": "发展",
+    "explanation_en": "'Progress' means advancement, 'develop' means growth or improvement.",
+    "explanation_zh": "'进展'是指进步，'发展'是指成长或改善。"
   },
   {
     "word1": "反映",
@@ -62,7 +86,13 @@
     "meaning2_ko": "표현하다",
     "example": "意見を（　）する",
     "correct": 1,
-    "explanation_ko": "'반영'은 영향을 미치는 것이고, '표현'은 감정이나 생각을 나타내는 것이다."
+    "explanation_ko": "'반영'은 영향을 미치는 것이고, '표현'은 감정이나 생각을 나타내는 것이다.",
+    "meaning1_en": "reflect",
+    "meaning1_zh": "反映",
+    "meaning2_en": "express",
+    "meaning2_zh": "表达",
+    "explanation_en": "'Reflect' means to influence, 'express' means to show feelings or thoughts.",
+    "explanation_zh": "'反映'是影响，'表达'是展示情感或想法。"
   },
   {
     "word1": "設計",
@@ -75,7 +105,13 @@
     "meaning2_ko": "계획하다",
     "example": "新しい建物の（　）を行う",
     "correct": 1,
-    "explanation_ko": "'설계'는 구조를 고려하는 것, '계획'은 일을 진행하기 위한 계획을 의미한다."
+    "explanation_ko": "'설계'는 구조를 고려하는 것, '계획'은 일을 진행하기 위한 계획을 의미한다.",
+    "meaning1_en": "design",
+    "meaning1_zh": "设计",
+    "meaning2_en": "plan",
+    "meaning2_zh": "计划",
+    "explanation_en": "'Design' considers structure, 'plan' means preparing to carry out tasks.",
+    "explanation_zh": "'设计'考虑结构，'计划'是指准备执行任务。"
   },
   {
     "word1": "適応",
@@ -88,7 +124,13 @@
     "meaning2_ko": "순응하다",
     "example": "新しい環境に（　）するのが大変だった",
     "correct": 1,
-    "explanation_ko": "'적응'은 환경에 맞추는 것이고, '순응'은 환경에 익숙해지는 것이다."
+    "explanation_ko": "'적응'은 환경에 맞추는 것이고, '순응'은 환경에 익숙해지는 것이다.",
+    "meaning1_en": "adapt",
+    "meaning1_zh": "适应",
+    "meaning2_en": "conform",
+    "meaning2_zh": "顺应",
+    "explanation_en": "'Adapt' means adjusting to the environment, 'conform' means becoming accustomed.",
+    "explanation_zh": "'适应'是指调整环境，'顺应'是指习惯于环境。"
   },
   {
     "word1": "実施",
@@ -101,7 +143,13 @@
     "meaning2_ko": "수행하다",
     "example": "プロジェクトを（　）する",
     "correct": 1,
-    "explanation_ko": "'실시'는 계획을 실현하는 것이고, '수행'은 그 계획을 실행하는 것이다."
+    "explanation_ko": "'실시'는 계획을 실현하는 것이고, '수행'은 그 계획을 실행하는 것이다.",
+    "meaning1_en": "implement",
+    "meaning1_zh": "实施",
+    "meaning2_en": "perform",
+    "meaning2_zh": "执行",
+    "explanation_en": "'Implement' means realizing a plan, 'perform' means executing that plan.",
+    "explanation_zh": "'实施'是指实现计划，'执行'是指执行该计划。"
   },
   {
     "word1": "挑戦",
@@ -114,7 +162,13 @@
     "meaning2_ko": "시도하다",
     "example": "新しい技術に（　）する",
     "correct": 1,
-    "explanation_ko": "'도전'은 어려운 일에 도전하는 것이고, '시도'는 새로운 것을 시험해 보는 것이다."
+    "explanation_ko": "'도전'은 어려운 일에 도전하는 것이고, '시도'는 새로운 것을 시험해 보는 것이다.",
+    "meaning1_en": "challenge",
+    "meaning1_zh": "挑战",
+    "meaning2_en": "attempt",
+    "meaning2_zh": "尝试",
+    "explanation_en": "'Challenge' means tackling something difficult, 'attempt' means trying something new.",
+    "explanation_zh": "'挑战'是指应对困难的事情，'尝试'是指试验新事物。"
   },
   {
     "word1": "選択",
@@ -127,7 +181,13 @@
     "meaning2_ko": "결정하다",
     "example": "進路を（　）する",
     "correct": 1,
-    "explanation_ko": "'선택'은 단순히 고르는 것이고, '결정'은 선택 후에 확정하는 것이다."
+    "explanation_ko": "'선택'은 단순히 고르는 것이고, '결정'은 선택 후에 확정하는 것이다.",
+    "meaning1_en": "choose",
+    "meaning1_zh": "选择",
+    "meaning2_en": "decide",
+    "meaning2_zh": "决定",
+    "explanation_en": "'Choose' means simply picking, 'decide' means confirming after choosing.",
+    "explanation_zh": "'选择'是简单地挑选，'决定'是在选择后确认。"
   },
   {
     "word1": "発見",
@@ -140,7 +200,13 @@
     "meaning2_ko": "발굴하다",
     "example": "新しい知識を（　）する",
     "correct": 1,
-    "explanation_ko": "'발견'은 새로운 사실을 찾는 것이고, '발굴'은 숨겨진 것을 찾아내는 것이다."
+    "explanation_ko": "'발견'은 새로운 사실을 찾는 것이고, '발굴'은 숨겨진 것을 찾아내는 것이다.",
+    "meaning1_en": "discover",
+    "meaning1_zh": "发现",
+    "meaning2_en": "excavate",
+    "meaning2_zh": "发掘",
+    "explanation_en": "'Discover' means to find something new, while 'excavate' means to uncover something hidden.",
+    "explanation_zh": "'发现'是找到新的事物，而'发掘'是揭示隐藏的东西。"
   },
   {
     "word1": "促進",
@@ -153,7 +219,13 @@
     "meaning2_ko": "추진하다",
     "example": "経済を（　）する",
     "correct": 1,
-    "explanation_ko": "'촉진'은 일을 진행시키는 것이고, '추진'은 그것을 강조하여 진행하는 것이다."
+    "explanation_ko": "'촉진'은 일을 진행시키는 것이고, '추진'은 그것을 강조하여 진행하는 것이다.",
+    "meaning1_en": "promote",
+    "meaning1_zh": "促进",
+    "meaning2_en": "advance",
+    "meaning2_zh": "推进",
+    "explanation_en": "'Promote' means to move something forward, while 'advance' emphasizes moving it forward.",
+    "explanation_zh": "'促进'是推动事情进展，而'推进'是强调推动。"
   },
   {
     "word1": "改善",
@@ -166,7 +238,13 @@
     "meaning2_ko": "향상하다",
     "example": "サービスの（　）に努める",
     "correct": 1,
-    "explanation_ko": "'개선'은 나쁜 점을 고치는 것이고, '향상'은 더 나은 방향으로 나아가는 것이다."
+    "explanation_ko": "'개선'은 나쁜 점을 고치는 것이고, '향상'은 더 나은 방향으로 나아가는 것이다.",
+    "meaning1_en": "improve",
+    "meaning1_zh": "改善",
+    "meaning2_en": "enhance",
+    "meaning2_zh": "提升",
+    "explanation_en": "'Improve' means to fix bad points, while 'enhance' means to move towards better.",
+    "explanation_zh": "'改善'是修正缺点，而'提升'是向更好的方向发展。"
   },
   {
     "word1": "協力",
@@ -179,7 +257,13 @@
     "meaning2_ko": "연계하다",
     "example": "チームで（　）して取り組む",
     "correct": 1,
-    "explanation_ko": "'협력'은 힘을 합쳐 돕는 것이고, '연계'는 서로 협력하는 것을 의미한다."
+    "explanation_ko": "'협력'은 힘을 합쳐 돕는 것이고, '연계'는 서로 협력하는 것을 의미한다.",
+    "meaning1_en": "cooperate",
+    "meaning1_zh": "合作",
+    "meaning2_en": "link",
+    "meaning2_zh": "联结",
+    "explanation_en": "'Cooperate' means to help together, while 'link' means to work together.",
+    "explanation_zh": "'合作'是共同帮助，而'联结'是相互合作。"
   },
   {
     "word1": "伝達",
@@ -192,7 +276,13 @@
     "meaning2_ko": "통신하다",
     "example": "メッセージを（　）する",
     "correct": 1,
-    "explanation_ko": "'전달'은 정보를 알리는 것이고, '통신'은 정보를 보내는 것이다."
+    "explanation_ko": "'전달'은 정보를 알리는 것이고, '통신'은 정보를 보내는 것이다.",
+    "meaning1_en": "deliver",
+    "meaning1_zh": "传达",
+    "meaning2_en": "communicate",
+    "meaning2_zh": "通信",
+    "explanation_en": "'Deliver' means to inform, while 'communicate' means to send information.",
+    "explanation_zh": "'传达'是告知信息，而'通信'是发送信息。"
   },
   {
     "word1": "整理",
@@ -205,7 +295,13 @@
     "meaning2_ko": "정돈하다",
     "example": "書類を（　）する",
     "correct": 1,
-    "explanation_ko": "'정리'는 정돈하는 것이고, '정돈'은 깔끔하게 정리하는 것을 의미한다."
+    "explanation_ko": "'정리'는 정돈하는 것이고, '정돈'은 깔끔하게 정리하는 것을 의미한다.",
+    "meaning1_en": "organize",
+    "meaning1_zh": "整理",
+    "meaning2_en": "tidy up",
+    "meaning2_zh": "收拾",
+    "explanation_en": "'Organize' means to arrange, while 'tidy up' means to arrange neatly.",
+    "explanation_zh": "'整理'是安排，而'收拾'是整齐地安排。"
   },
   {
     "word1": "選考",
@@ -218,7 +314,13 @@
     "meaning2_ko": "선별하다",
     "example": "候補者を（　）する",
     "correct": 1,
-    "explanation_ko": "'선고'는 후보를 선택하는 것이고, '선별'은 분류하여 선택하는 것이다."
+    "explanation_ko": "'선고'는 후보를 선택하는 것이고, '선별'은 분류하여 선택하는 것이다.",
+    "meaning1_en": "announce",
+    "meaning1_zh": "宣告",
+    "meaning2_en": "select",
+    "meaning2_zh": "选择",
+    "explanation_en": "'Announce' means to choose a candidate, while 'select' means to classify and choose.",
+    "explanation_zh": "'宣告'是选择候选人，而'选择'是分类后选择。"
   },
   {
     "word1": "解決",
@@ -231,7 +333,13 @@
     "meaning2_ko": "처리하다",
     "example": "問題を（　）する",
     "correct": 1,
-    "explanation_ko": "'해결'은 문제를 풀어내는 것이고, '처리'는 문제를 다루는 것이다."
+    "explanation_ko": "'해결'은 문제를 풀어내는 것이고, '처리'는 문제를 다루는 것이다.",
+    "meaning1_en": "solve",
+    "meaning1_zh": "解决",
+    "meaning2_en": "handle",
+    "meaning2_zh": "处理",
+    "explanation_en": "'Solve' means to resolve a problem, while 'handle' means to deal with a problem.",
+    "explanation_zh": "'解决'是解决问题，而'处理'是应对问题。"
   },
   {
     "word1": "変化",
@@ -244,7 +352,13 @@
     "meaning2_ko": "진화하다",
     "example": "環境の（　）に対応する",
     "correct": 1,
-    "explanation_ko": "'변화'는 상태의 변화이고, '진화'는 더 나은 방향으로 변화하는 것이다."
+    "explanation_ko": "'변화'는 상태의 변화이고, '진화'는 더 나은 방향으로 변화하는 것이다.",
+    "meaning1_en": "change",
+    "meaning1_zh": "变化",
+    "meaning2_en": "evolve",
+    "meaning2_zh": "进化",
+    "explanation_en": "'Change' means a shift in state, while 'evolve' means to change towards better.",
+    "explanation_zh": "'变化'是状态的变化，而'进化'是向更好的方向变化。"
   },
   {
     "word1": "認識",
@@ -257,7 +371,13 @@
     "meaning2_ko": "이해하다",
     "example": "現状を（　）する",
     "correct": 1,
-    "explanation_ko": "'인식'은 이해하는 것이고, '이해'는 내용을 아는 것이다."
+    "explanation_ko": "'인식'은 이해하는 것이고, '이해'는 내용을 아는 것이다.",
+    "meaning1_en": "recognize",
+    "meaning1_zh": "认识",
+    "meaning2_en": "understand",
+    "meaning2_zh": "理解",
+    "explanation_en": "'Recognize' means to understand, while 'understand' means to know the content.",
+    "explanation_zh": "'认识'是理解，而'理解'是知道内容。"
   },
   {
     "word1": "考慮",
@@ -270,7 +390,13 @@
     "meaning2_ko": "배려하다",
     "example": "相手の気持ちを（　）する",
     "correct": 1,
-    "explanation_ko": "'고려'는 생각하는 것이고, '배려'는 타인을 생각하는 것이다."
+    "explanation_ko": "'고려'는 생각하는 것이고, '배려'는 타인을 생각하는 것이다.",
+    "meaning1_en": "consider",
+    "meaning1_zh": "考虑",
+    "meaning2_en": "care",
+    "meaning2_zh": "关心",
+    "explanation_en": "'Consider' means to think about something, and 'care' means to think of others.",
+    "explanation_zh": ""
   },
   {
     "word1": "達成",
@@ -283,7 +409,13 @@
     "meaning2_ko": "실현하다",
     "example": "目標を（　）する",
     "correct": 1,
-    "explanation_ko": "'달성'은 목표를 이루는 것이고, '실현'은 계획을 실제로 실행하는 것이다."
+    "explanation_ko": "'달성'은 목표를 이루는 것이고, '실현'은 계획을 실제로 실행하는 것이다.",
+    "meaning1_en": "achieve",
+    "meaning1_zh": "达成",
+    "meaning2_en": "realize",
+    "meaning2_zh": "实现",
+    "explanation_en": "'Achieve' means to reach a goal, and 'realize' means to put a plan into action.",
+    "explanation_zh": ""
   },
   {
     "word1": "想像",
@@ -296,7 +428,13 @@
     "meaning2_ko": "창조하다",
     "example": "未来を（　）する",
     "correct": 1,
-    "explanation_ko": "'상상'은 마음속에서 그리는 것이고, '창조'는 새로운 것을 만들어내는 것이다."
+    "explanation_ko": "'상상'은 마음속에서 그리는 것이고, '창조'는 새로운 것을 만들어내는 것이다.",
+    "meaning1_en": "imagine",
+    "meaning1_zh": "想象",
+    "meaning2_en": "create",
+    "meaning2_zh": "创造",
+    "explanation_en": "'Imagine' means to picture in your mind, and 'create' means to make something new.",
+    "explanation_zh": ""
   },
   {
     "word1": "分析",
@@ -309,7 +447,13 @@
     "meaning2_ko": "해석하다",
     "example": "データを（　）する",
     "correct": 1,
-    "explanation_ko": "'분석'은 세밀히 조사하는 것이고, '해석'은 데이터를 자세히 살펴보는 것이다."
+    "explanation_ko": "'분석'은 세밀히 조사하는 것이고, '해석'은 데이터를 자세히 살펴보는 것이다.",
+    "meaning1_en": "analyze",
+    "meaning1_zh": "分析",
+    "meaning2_en": "interpret",
+    "meaning2_zh": "解读",
+    "explanation_en": "'Analyze' means to examine closely, and 'interpret' means to look at data in detail.",
+    "explanation_zh": ""
   },
   {
     "word1": "具体化",
@@ -322,7 +466,13 @@
     "meaning2_ko": "명확화하다",
     "example": "アイデアを（　）する",
     "correct": 1,
-    "explanation_ko": "'구체화'는 추상적인 것을 구체적으로 만드는 것이고, '명확화'는 애매한 것을 분명히 하는 것이다."
+    "explanation_ko": "'구체화'는 추상적인 것을 구체적으로 만드는 것이고, '명확화'는 애매한 것을 분명히 하는 것이다.",
+    "meaning1_en": "specify",
+    "meaning1_zh": "具体化",
+    "meaning2_en": "clarify",
+    "meaning2_zh": "明确化",
+    "explanation_en": "'Specify' means to make something abstract concrete, and 'clarify' means to make something vague clear.",
+    "explanation_zh": ""
   },
   {
     "word1": "依存",
@@ -335,7 +485,13 @@
     "meaning2_ko": "의거하다",
     "example": "他者に（　）する",
     "correct": 1,
-    "explanation_ko": "'의존'은 다른 것에 의지하는 것이고, '의거'는 어떤 것을 기준으로 삼는 것이다."
+    "explanation_ko": "'의존'은 다른 것에 의지하는 것이고, '의거'는 어떤 것을 기준으로 삼는 것이다.",
+    "meaning1_en": "depend",
+    "meaning1_zh": "依赖",
+    "meaning2_en": "base on",
+    "meaning2_zh": "依据",
+    "explanation_en": "'Depend' means to rely on something, and 'base on' means to use something as a standard.",
+    "explanation_zh": ""
   },
   {
     "word1": "保存",
@@ -348,7 +504,13 @@
     "meaning2_ko": "보관하다",
     "example": "データを（　）する",
     "correct": 1,
-    "explanation_ko": "'보존'은 물건을 유지하는 것이고, '보관'은 안전하게 두는 것이다."
+    "explanation_ko": "'보존'은 물건을 유지하는 것이고, '보관'은 안전하게 두는 것이다.",
+    "meaning1_en": "preserve",
+    "meaning1_zh": "保存",
+    "meaning2_en": "store",
+    "meaning2_zh": "储存",
+    "explanation_en": "'Preserve' means to maintain an item, and 'store' means to keep it safely.",
+    "explanation_zh": ""
   },
   {
     "word1": "支援",
@@ -361,7 +523,13 @@
     "meaning2_ko": "원조하다",
     "example": "プロジェクトを（　）する",
     "correct": 1,
-    "explanation_ko": "'지원'은 돕는 것이고, '원조'는 어려운 상황을 도와주는 것이다."
+    "explanation_ko": "'지원'은 돕는 것이고, '원조'는 어려운 상황을 도와주는 것이다.",
+    "meaning1_en": "support",
+    "meaning1_zh": "支持",
+    "meaning2_en": "assist",
+    "meaning2_zh": "援助",
+    "explanation_en": "'Support' means to help, and 'assist' means to help in difficult situations.",
+    "explanation_zh": ""
   },
   {
     "word1": "影響",
@@ -374,7 +542,13 @@
     "meaning2_ko": "효과를 주다",
     "example": "政策に（　）を与える",
     "correct": 1,
-    "explanation_ko": "'영향'은 다른 것에 작용하는 것이고, '효과'는 특정 결과를 초래하는 것이다."
+    "explanation_ko": "'영향'은 다른 것에 작용하는 것이고, '효과'는 특정 결과를 초래하는 것이다.",
+    "meaning1_en": "influence",
+    "meaning1_zh": "影响",
+    "meaning2_en": "effect",
+    "meaning2_zh": "效果",
+    "explanation_en": "'Influence' means to affect something, and 'effect' means to cause a specific result.",
+    "explanation_zh": ""
   },
   {
     "word1": "動機",
@@ -387,7 +561,13 @@
     "meaning2_ko": "이유",
     "example": "行動の（　）を考える",
     "correct": 1,
-    "explanation_ko": "'동기'는 행동의 이유이고, '이유'는 왜 그런지를 설명하는 것이다."
+    "explanation_ko": "'동기'는 행동의 이유이고, '이유'는 왜 그런지를 설명하는 것이다.",
+    "meaning1_en": "motive",
+    "meaning1_zh": "动机",
+    "meaning2_en": "reason",
+    "meaning2_zh": "理由",
+    "explanation_en": "'Motive' is the reason for action, and 'reason' explains why something is so.",
+    "explanation_zh": ""
   },
   {
     "word1": "構成",
@@ -400,7 +580,13 @@
     "meaning2_ko": "조직하다",
     "example": "チームを（　）する",
     "correct": 1,
-    "explanation_ko": "'구성'은 요소를 조합하는 것이고, '조직'은 특정 형태를 만드는 것이다."
+    "explanation_ko": "'구성'은 요소를 조합하는 것이고, '조직'은 특정 형태를 만드는 것이다.",
+    "meaning1_en": "compose",
+    "meaning1_zh": "构成",
+    "meaning2_en": "organize",
+    "meaning2_zh": "组织",
+    "explanation_en": "'Compose' means to combine elements, and 'organize' means to create a specific form.",
+    "explanation_zh": "'构成'是指组合元素，'组织'是指形成特定的形态。"
   },
   {
     "word1": "感謝",
@@ -413,7 +599,13 @@
     "meaning2_ko": "사죄의 마음",
     "example": "お礼の（　）を伝える",
     "correct": 1,
-    "explanation_ko": "'감사'는 고마운 마음이고, '사죄의 마음'은 미안한 마음을 뜻한다."
+    "explanation_ko": "'감사'는 고마운 마음이고, '사죄의 마음'은 미안한 마음을 뜻한다.",
+    "meaning1_en": "appreciate",
+    "meaning1_zh": "感谢",
+    "meaning2_en": "feeling of apology",
+    "meaning2_zh": "歉意",
+    "explanation_en": "'Appreciate' means to feel grateful, and 'feeling of apology' means to feel sorry.",
+    "explanation_zh": "'感谢'是感恩的心情，'歉意'是感到抱歉的心情。"
   },
   {
     "word1": "対策",
@@ -426,7 +618,13 @@
     "meaning2_ko": "대응하다",
     "example": "問題に（　）を講じる",
     "correct": 1,
-    "explanation_ko": "'대책'은 문제에 대한 방법이고, '대응'은 그 문제에 대해 행동하는 것이다."
+    "explanation_ko": "'대책'은 문제에 대한 방법이고, '대응'은 그 문제에 대해 행동하는 것이다.",
+    "meaning1_en": "countermeasure",
+    "meaning1_zh": "对策",
+    "meaning2_en": "respond",
+    "meaning2_zh": "应对",
+    "explanation_en": "'Countermeasure' is a method for a problem, and 'respond' means to take action on that problem.",
+    "explanation_zh": "'对策'是针对问题的方法，'应对'是对此问题采取行动。"
   },
   {
     "word1": "維持",
@@ -439,7 +637,13 @@
     "meaning2_ko": "보유하다",
     "example": "品質を（　）する",
     "correct": 1,
-    "explanation_ko": "'유지'는 상태를 계속하는 것이고, '보유'는 그 상태를 지키는 것이다."
+    "explanation_ko": "'유지'는 상태를 계속하는 것이고, '보유'는 그 상태를 지키는 것이다.",
+    "meaning1_en": "maintain",
+    "meaning1_zh": "维持",
+    "meaning2_en": "possess",
+    "meaning2_zh": "保有",
+    "explanation_en": "'Maintain' means to keep a state, and 'possess' means to hold that state.",
+    "explanation_zh": "'维持'是保持状态，'保有'是保持那个状态。"
   },
   {
     "word1": "教育",
@@ -452,7 +656,13 @@
     "meaning2_ko": "훈련하다",
     "example": "学生を（　）する",
     "correct": 1,
-    "explanation_ko": "'교육'은 지식이나 기술을 가르치는 것이고, '훈련'은 기술이나 지식을 습득하게 하는 것이다."
+    "explanation_ko": "'교육'은 지식이나 기술을 가르치는 것이고, '훈련'은 기술이나 지식을 습득하게 하는 것이다.",
+    "meaning1_en": "educate",
+    "meaning1_zh": "教育",
+    "meaning2_en": "train",
+    "meaning2_zh": "训练",
+    "explanation_en": "'Educate' means to teach knowledge or skills, and 'train' means to help acquire those skills or knowledge.",
+    "explanation_zh": "'教育'是传授知识或技能，'训练'是帮助掌握那些技能或知识。"
   },
   {
     "word1": "分析",
@@ -465,7 +675,13 @@
     "meaning2_ko": "엄밀히 검토하다",
     "example": "資料を（　）する",
     "correct": 1,
-    "explanation_ko": "'분석'은 자세히 조사하는 것이고, '엄밀히 검토'는 세밀하게 확인하는 것이다."
+    "explanation_ko": "'분석'은 자세히 조사하는 것이고, '엄밀히 검토'는 세밀하게 확인하는 것이다.",
+    "meaning1_en": "analyze",
+    "meaning1_zh": "分析",
+    "meaning2_en": "examine closely",
+    "meaning2_zh": "仔细检查",
+    "explanation_en": "'Analyze' means to investigate in detail, and 'examine closely' means to check carefully.",
+    "explanation_zh": "'分析'是指详细调查，'仔细检查'是指认真确认。"
   },
   {
     "word1": "適正",
@@ -478,7 +694,13 @@
     "meaning2_ko": "타당하다",
     "example": "料金の（　）を確認する",
     "correct": 1,
-    "explanation_ko": "'적정'은 적절한 상태이고, '타당'은 정당한 상태를 의미한다."
+    "explanation_ko": "'적정'은 적절한 상태이고, '타당'은 정당한 상태를 의미한다.",
+    "meaning1_en": "appropriate",
+    "meaning1_zh": "适当",
+    "meaning2_en": "valid",
+    "meaning2_zh": "合理",
+    "explanation_en": "'Appropriate' means a suitable state, and 'valid' means a justifiable state.",
+    "explanation_zh": "'适当'是指合适的状态，'合理'是指正当的状态。"
   },
   {
     "word1": "対話",
@@ -491,7 +713,13 @@
     "meaning2_ko": "대화하다",
     "example": "意見を（　）する",
     "correct": 1,
-    "explanation_ko": "'대화'는 의견을 나누는 것이고, '대화'는 사람과 대화하는 것이다."
+    "explanation_ko": "'대화'는 의견을 나누는 것이고, '대화'는 사람과 대화하는 것이다.",
+    "meaning1_en": "converse",
+    "meaning1_zh": "对话",
+    "meaning2_en": "converse",
+    "meaning2_zh": "交谈",
+    "explanation_en": "'Converse' means to share opinions, and 'converse' means to talk with someone.",
+    "explanation_zh": "'对话'是指分享意见，'交谈'是指与人交谈。"
   },
   {
     "word1": "解釈",
@@ -504,7 +732,13 @@
     "meaning2_ko": "설명하다",
     "example": "文の（　）を行う",
     "correct": 1,
-    "explanation_ko": "'해석'은 의미를 이해하는 것이고, '설명'은 내용을 분명히 하는 것이다."
+    "explanation_ko": "'해석'은 의미를 이해하는 것이고, '설명'은 내용을 분명히 하는 것이다.",
+    "meaning1_en": "interpret",
+    "meaning1_zh": "解释",
+    "meaning2_en": "explain",
+    "meaning2_zh": "说明",
+    "explanation_en": "'Interpret' means to understand meaning, and 'explain' means to clarify content.",
+    "explanation_zh": "'解释'是理解意义，'说明'是澄清内容。"
   },
   {
     "word1": "発表",
@@ -517,7 +751,13 @@
     "meaning2_ko": "공표하다",
     "example": "研究成果を（　）する",
     "correct": 1,
-    "explanation_ko": "'발표'는 결과를 알리는 것이고, '공표'는 공식적으로 발표하는 것이다."
+    "explanation_ko": "'발표'는 결과를 알리는 것이고, '공표'는 공식적으로 발표하는 것이다.",
+    "meaning1_en": "announce",
+    "meaning1_zh": "发布",
+    "meaning2_en": "proclaim",
+    "meaning2_zh": "公示",
+    "explanation_en": "'Announce' means to inform about results, and 'proclaim' means to make an official announcement.",
+    "explanation_zh": "'发布'是指告知结果，'公示'是指正式宣布。"
   },
   {
     "word1": "緊張",
@@ -530,7 +770,13 @@
     "meaning2_ko": "불안하다",
     "example": "会議の前に（　）する",
     "correct": 1,
-    "explanation_ko": "'긴장'은 마음이나 몸이 긴장하는 것이고, '불안'은 걱정스러운 상태를 의미한다."
+    "explanation_ko": "'긴장'은 마음이나 몸이 긴장하는 것이고, '불안'은 걱정스러운 상태를 의미한다.",
+    "meaning1_en": "to be nervous",
+    "meaning1_zh": "紧张",
+    "meaning2_en": "to be anxious",
+    "meaning2_zh": "不安",
+    "explanation_en": "'Nervous' means being tense, and 'anxious' refers to a worrying state.",
+    "explanation_zh": "'紧张'是指心里或身体的紧张，'不安'是指担心的状态。"
   },
   {
     "word1": "整備",
@@ -543,7 +789,13 @@
     "meaning2_ko": "정돈하다",
     "example": "設備を（　）する",
     "correct": 1,
-    "explanation_ko": "'정비'는 정리하는 것이고, '정돈'은 형태를 정리하는 것이다."
+    "explanation_ko": "'정비'는 정리하는 것이고, '정돈'은 형태를 정리하는 것이다.",
+    "meaning1_en": "to maintain",
+    "meaning1_zh": "整修",
+    "meaning2_en": "to organize",
+    "meaning2_zh": "整理",
+    "explanation_en": "'Maintain' means to organize, and 'organize' means to arrange forms.",
+    "explanation_zh": "'整修'是指整理，'整理'是指整理形状。"
   },
   {
     "word1": "選挙",
@@ -556,7 +808,13 @@
     "meaning2_ko": "투표",
     "example": "市長を（　）する",
     "correct": 1,
-    "explanation_ko": "'선거'는 대표를 선택하는 것이고, '투표'는 선택하기 위한 행위이다."
+    "explanation_ko": "'선거'는 대표를 선택하는 것이고, '투표'는 선택하기 위한 행위이다.",
+    "meaning1_en": "election",
+    "meaning1_zh": "选举",
+    "meaning2_en": "vote",
+    "meaning2_zh": "投票",
+    "explanation_en": "'Election' is choosing a representative, and 'vote' is the act of choosing.",
+    "explanation_zh": "'选举'是选择代表，'投票'是选择的行为。"
   },
   {
     "word1": "修正",
@@ -569,7 +827,13 @@
     "meaning2_ko": "개정하다",
     "example": "文章を（　）する",
     "correct": 1,
-    "explanation_ko": "'수정'은 오류를 고치는 것이고, '개정'은 새로운 버전을 만드는 것이다."
+    "explanation_ko": "'수정'은 오류를 고치는 것이고, '개정'은 새로운 버전을 만드는 것이다.",
+    "meaning1_en": "to correct",
+    "meaning1_zh": "修正",
+    "meaning2_en": "to revise",
+    "meaning2_zh": "修订",
+    "explanation_en": "'Correct' means fixing errors, and 'revise' means creating a new version.",
+    "explanation_zh": "'修正'是指修复错误，'修订'是指制作新版本。"
   },
   {
     "word1": "浸透",
@@ -582,7 +846,13 @@
     "meaning2_ko": "침식하다",
     "example": "水が地面に（　）する",
     "correct": 1,
-    "explanation_ko": "'침투'는 내부로 들어가는 것이고, '침식'은 침투하여 깎이는 것이다."
+    "explanation_ko": "'침투'는 내부로 들어가는 것이고, '침식'은 침투하여 깎이는 것이다.",
+    "meaning1_en": "to infiltrate",
+    "meaning1_zh": "渗透",
+    "meaning2_en": "to erode",
+    "meaning2_zh": "侵蚀",
+    "explanation_en": "'Infiltrate' means entering inside, and 'erode' means wearing away by infiltration.",
+    "explanation_zh": "'渗透'是指进入内部，'侵蚀'是指通过渗透而被削弱。"
   },
   {
     "word1": "提供",
@@ -595,7 +865,13 @@
     "meaning2_ko": "공급하다",
     "example": "情報を（　）する",
     "correct": 1,
-    "explanation_ko": "'제공'은 공급하는 것이고, '공급'은 필요한 것을 제공하는 것이다."
+    "explanation_ko": "'제공'은 공급하는 것이고, '공급'은 필요한 것을 제공하는 것이다.",
+    "meaning1_en": "to provide",
+    "meaning1_zh": "提供",
+    "meaning2_en": "to supply",
+    "meaning2_zh": "供应",
+    "explanation_en": "'Provide' means to supply, and 'supply' means to offer what is needed.",
+    "explanation_zh": "'提供'是指供应，'供应'是指提供所需的东西。"
   },
   {
     "word1": "解釈",
@@ -608,7 +884,13 @@
     "meaning2_ko": "이해하다",
     "example": "文を（　）する",
     "correct": 1,
-    "explanation_ko": "'해석'은 의미를 이해하는 것이고, '이해'는 내용을 아는 것이다."
+    "explanation_ko": "'해석'은 의미를 이해하는 것이고, '이해'는 내용을 아는 것이다.",
+    "meaning1_en": "to interpret",
+    "meaning1_zh": "解释",
+    "meaning2_en": "to understand",
+    "meaning2_zh": "理解",
+    "explanation_en": "'Interpret' means understanding the meaning, and 'understand' means knowing the content.",
+    "explanation_zh": "'解释'是指理解意义，'理解'是指知道内容。"
   },
   {
     "word1": "生成",
@@ -621,7 +903,13 @@
     "meaning2_ko": "창조하다",
     "example": "新しいコンテンツを（　）する",
     "correct": 1,
-    "explanation_ko": "'생성'은 새로운 것을 만드는 것이고, '창조'는 새로운 것을 생산하는 것이다."
+    "explanation_ko": "'생성'은 새로운 것을 만드는 것이고, '창조'는 새로운 것을 생산하는 것이다.",
+    "meaning1_en": "to generate",
+    "meaning1_zh": "生成",
+    "meaning2_en": "to create",
+    "meaning2_zh": "创造",
+    "explanation_en": "'Generate' means making something new, and 'create' means producing something new.",
+    "explanation_zh": "'生成'是指制作新东西，'创造'是指生产新东西。"
   },
   {
     "word1": "反響",
@@ -634,7 +922,13 @@
     "meaning2_ko": "반응하다",
     "example": "新しい政策の（　）を知る",
     "correct": 1,
-    "explanation_ko": "'반향'은 영향을 미치는 것이고, '반응'은 자극에 대한 반응이다."
+    "explanation_ko": "'반향'은 영향을 미치는 것이고, '반응'은 자극에 대한 반응이다.",
+    "meaning1_en": "echo",
+    "meaning1_zh": "反响",
+    "meaning2_en": "to react",
+    "meaning2_zh": "反应",
+    "explanation_en": "'Echo' means having an influence, and 'react' means responding to a stimulus.",
+    "explanation_zh": "'反响'是指产生影响，'反应'是指对刺激的反应。"
   },
   {
     "word1": "区別",
@@ -647,7 +941,13 @@
     "meaning2_ko": "식별하다",
     "example": "色を（　）する",
     "correct": 1,
-    "explanation_ko": "'구별'은 차이를 명확히 하는 것이고, '식별'은 구별하는 것이다."
+    "explanation_ko": "'구별'은 차이를 명확히 하는 것이고, '식별'은 구별하는 것이다.",
+    "meaning1_en": "to distinguish",
+    "meaning1_zh": "区分",
+    "meaning2_en": "to identify",
+    "meaning2_zh": "识别",
+    "explanation_en": "'Distinguish' means clarifying differences, and 'identify' means recognizing distinctions.",
+    "explanation_zh": "'区分'是指明确差异，'识别'是指辨别。"
   },
   {
     "word1": "結果",
@@ -660,7 +960,13 @@
     "meaning2_ko": "성적",
     "example": "試験の（　）を確認する",
     "correct": 1,
-    "explanation_ko": "'결과'는 일의 끝에 나타나는 것이고, '성적'은 그 결과를 나타내는 것이다."
+    "explanation_ko": "'결과'는 일의 끝에 나타나는 것이고, '성적'은 그 결과를 나타내는 것이다.",
+    "meaning1_en": "result",
+    "meaning1_zh": "结果",
+    "meaning2_en": "grade",
+    "meaning2_zh": "成绩",
+    "explanation_en": "'Result' appears at the end of a task, and 'grade' shows that result.",
+    "explanation_zh": "'结果'是任务结束时出现的，'成绩'是显示该结果的。"
   },
   {
     "word1": "寄与",
@@ -673,7 +979,13 @@
     "meaning2_ko": "공헌하다",
     "example": "地域社会に（　）する",
     "correct": 1,
-    "explanation_ko": "'기여'는 기여하는 것이고, '공헌'은 역할을 하는 것을 의미한다."
+    "explanation_ko": "'기여'는 기여하는 것이고, '공헌'은 역할을 하는 것을 의미한다.",
+    "meaning1_en": "contribute",
+    "meaning1_zh": "贡献",
+    "meaning2_en": "contribute",
+    "meaning2_zh": "贡献",
+    "explanation_en": "'Contribute' means to give, and 'contribution' means to play a role.",
+    "explanation_zh": "'贡献'是指给予，'贡献'是指发挥作用。"
   },
   {
     "word1": "演説",
@@ -686,7 +998,13 @@
     "meaning2_ko": "연설하다",
     "example": "会議で（　）する",
     "correct": 1,
-    "explanation_ko": "'연설'은 사람들 앞에서 하는 것이고, '스피치'는 말을 하는 것이다."
+    "explanation_ko": "'연설'은 사람들 앞에서 하는 것이고, '스피치'는 말을 하는 것이다.",
+    "meaning1_en": "speak",
+    "meaning1_zh": "演讲",
+    "meaning2_en": "speech",
+    "meaning2_zh": "演讲",
+    "explanation_en": "'Speech' is done in front of people, and 'talk' means to speak.",
+    "explanation_zh": "'演讲'是在众人面前进行的，'说话'是指说话。"
   },
   {
     "word1": "予想",
@@ -699,7 +1017,13 @@
     "meaning2_ko": "추측하다",
     "example": "天気を（　）する",
     "correct": 1,
-    "explanation_ko": "'예상'은 미래를 추정하는 것이고, '추측'은 추정하는 것이다."
+    "explanation_ko": "'예상'은 미래를 추정하는 것이고, '추측'은 추정하는 것이다.",
+    "meaning1_en": "expect",
+    "meaning1_zh": "预计",
+    "meaning2_en": "guess",
+    "meaning2_zh": "推测",
+    "explanation_en": "'Expect' means to estimate the future, and 'guess' means to make an assumption.",
+    "explanation_zh": "'预计'是指对未来的估计，'推测'是指进行假设。"
   },
   {
     "word1": "契約",
@@ -712,7 +1036,13 @@
     "meaning2_ko": "합의하다",
     "example": "契約を（　）する",
     "correct": 1,
-    "explanation_ko": "'계약'은 합의하는 것이고, '합의'는 의견이 일치하는 것이다."
+    "explanation_ko": "'계약'은 합의하는 것이고, '합의'는 의견이 일치하는 것이다.",
+    "meaning1_en": "contract",
+    "meaning1_zh": "合同",
+    "meaning2_en": "agree",
+    "meaning2_zh": "达成一致",
+    "explanation_en": "'Contract' means to agree, and 'agreement' means to have matching opinions.",
+    "explanation_zh": "'合同'是指达成一致，'达成一致'是指意见一致。"
   },
   {
     "word1": "振動",
@@ -725,7 +1055,13 @@
     "meaning2_ko": "흔들리다",
     "example": "地震の（　）を感じる",
     "correct": 1,
-    "explanation_ko": "'진동'은 흔들리는 것이고, '흔들림'은 그 상태를 의미한다."
+    "explanation_ko": "'진동'은 흔들리는 것이고, '흔들림'은 그 상태를 의미한다.",
+    "meaning1_en": "vibrate",
+    "meaning1_zh": "震动",
+    "meaning2_en": "shake",
+    "meaning2_zh": "摇晃",
+    "explanation_en": "'Vibration' means shaking, and 'shake' refers to that state.",
+    "explanation_zh": "'震动'是指摇晃，'摇晃'是指那种状态。"
   },
   {
     "word1": "信頼",
@@ -738,7 +1074,13 @@
     "meaning2_ko": "신뢰하다",
     "example": "友人を（　）する",
     "correct": 1,
-    "explanation_ko": "'신뢰'는 믿는 것이고, '신용'은 믿음을 두는 것이다."
+    "explanation_ko": "'신뢰'는 믿는 것이고, '신용'은 믿음을 두는 것이다.",
+    "meaning1_en": "trust",
+    "meaning1_zh": "信任",
+    "meaning2_en": "trust",
+    "meaning2_zh": "信任",
+    "explanation_en": "'Trust' means to believe, and 'credit' means to place trust.",
+    "explanation_zh": "'信任'是指相信，'信贷'是指给予信任。"
   },
   {
     "word1": "適切",
@@ -751,7 +1093,13 @@
     "meaning2_ko": "타당하다",
     "example": "判断が（　）である",
     "correct": 1,
-    "explanation_ko": "'적절'은 적합한 것이고, '타당'은 정당한 것이다."
+    "explanation_ko": "'적절'은 적합한 것이고, '타당'은 정당한 것이다.",
+    "meaning1_en": "appropriate",
+    "meaning1_zh": "适当",
+    "meaning2_en": "valid",
+    "meaning2_zh": "合理",
+    "explanation_en": "'Appropriate' means suitable, and 'valid' means justifiable.",
+    "explanation_zh": "'适当'是指合适，'合理'是指正当。"
   },
   {
     "word1": "興味",
@@ -764,7 +1112,13 @@
     "meaning2_ko": "관심",
     "example": "新しい分野に（　）を持つ",
     "correct": 1,
-    "explanation_ko": "'흥미'는 관심을 가지는 것이고, '관심'은 흥미를 가지는 것이다."
+    "explanation_ko": "'흥미'는 관심을 가지는 것이고, '관심'은 흥미를 가지는 것이다.",
+    "meaning1_en": "interest",
+    "meaning1_zh": "兴趣",
+    "meaning2_en": "concern",
+    "meaning2_zh": "关注",
+    "explanation_en": "'Interest' means to have curiosity, and 'concern' means to have interest.",
+    "explanation_zh": "'兴趣'是指有好奇心，'关注'是指有兴趣。"
   },
   {
     "word1": "直面",
@@ -777,7 +1131,13 @@
     "meaning2_ko": "대치하다",
     "example": "問題に（　）する",
     "correct": 1,
-    "explanation_ko": "'직면'은 직접 맞서는 것이고, '대치'는 상대하는 것이다."
+    "explanation_ko": "'직면'은 직접 맞서는 것이고, '대치'는 상대하는 것이다.",
+    "meaning1_en": "face",
+    "meaning1_zh": "面对",
+    "meaning2_en": "confront",
+    "meaning2_zh": "对抗",
+    "explanation_en": "'Face' means to confront directly, and 'confront' means to deal with.",
+    "explanation_zh": "'面对'是指直接对抗，'对抗'是指应对。"
   },
   {
     "word1": "試練",
@@ -790,7 +1150,13 @@
     "meaning2_ko": "도전하다",
     "example": "人生の（　）を乗り越える",
     "correct": 1,
-    "explanation_ko": "'시험'은 시험받는 것이고, '도전'은 어려움에 맞서는 것이다."
+    "explanation_ko": "'시험'은 시험받는 것이고, '도전'은 어려움에 맞서는 것이다.",
+    "meaning1_en": "test",
+    "meaning1_zh": "考试",
+    "meaning2_en": "challenge",
+    "meaning2_zh": "挑战",
+    "explanation_en": "'test' is to be examined, and 'challenge' is to face difficulties.",
+    "explanation_zh": "'考试'是接受考验，'挑战'是面对困难。"
   },
   {
     "word1": "強化",
@@ -803,7 +1169,13 @@
     "meaning2_ko": "증강하다",
     "example": "チームの（　）を図る",
     "correct": 1,
-    "explanation_ko": "'강화'는 힘을 증가시키는 것이고, '증강'은 수량을 늘리는 것이다."
+    "explanation_ko": "'강화'는 힘을 증가시키는 것이고, '증강'은 수량을 늘리는 것이다.",
+    "meaning1_en": "strengthen",
+    "meaning1_zh": "强化",
+    "meaning2_en": "augment",
+    "meaning2_zh": "增强",
+    "explanation_en": "'strengthen' means to increase power, and 'augment' means to increase quantity.",
+    "explanation_zh": "'强化'是增加力量，'增强'是增加数量。"
   },
   {
     "word1": "協調",
@@ -816,7 +1188,13 @@
     "meaning2_ko": "협력하다",
     "example": "プロジェクトで（　）する",
     "correct": 1,
-    "explanation_ko": "'협조'는 협력하여 하는 것이고, '협력'은 함께 노력하는 것이다."
+    "explanation_ko": "'협조'는 협력하여 하는 것이고, '협력'은 함께 노력하는 것이다.",
+    "meaning1_en": "cooperate",
+    "meaning1_zh": "协作",
+    "meaning2_en": "collaborate",
+    "meaning2_zh": "合作",
+    "explanation_en": "'cooperate' means to work together, and 'collaborate' means to strive together.",
+    "explanation_zh": "'协作'是一起工作，'合作'是共同努力。"
   },
   {
     "word1": "反映",
@@ -829,6 +1207,12 @@
     "meaning2_ko": "재현하다",
     "example": "現実を（　）する",
     "correct": 1,
-    "explanation_ko": "'반영'은 비추는 것이고, '재현'은 다시 나타내는 것이다."
+    "explanation_ko": "'반영'은 비추는 것이고, '재현'은 다시 나타내는 것이다.",
+    "meaning1_en": "reflect",
+    "meaning1_zh": "反映",
+    "meaning2_en": "reproduce",
+    "meaning2_zh": "再现",
+    "explanation_en": "'reflect' means to shine back, and 'reproduce' means to show again.",
+    "explanation_zh": "'反映'是反射，'再现'是再次出现。"
   }
 ]

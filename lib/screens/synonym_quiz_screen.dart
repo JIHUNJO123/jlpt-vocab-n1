@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../services/ad_service.dart';
+import '../services/translation_service.dart';
 
 /// 뉘앙스 대결 퀴즈 화면
 /// 유의어 중 문맥에 맞는 단어 선택
@@ -196,11 +197,26 @@ class _SynonymQuizScreenState extends State<SynonymQuizScreen> {
     final word2 = currentItem['word2'] as String;
     final reading1 = currentItem['reading1'] as String;
     final reading2 = currentItem['reading2'] as String;
-    final meaning1 = currentItem['meaning1_ko'] as String;
-    final meaning2 = currentItem['meaning2_ko'] as String;
+
+    // 언어 설정에 따른 필드 선택
+    final lang = TranslationService.instance.currentLanguage;
+    final meaningSuffix =
+        lang == 'ko'
+            ? '_ko'
+            : lang == 'zh'
+            ? '_zh'
+            : '_en';
+    final meaning1 =
+        currentItem['meaning1$meaningSuffix'] as String? ??
+        currentItem['meaning1_ko'] as String;
+    final meaning2 =
+        currentItem['meaning2$meaningSuffix'] as String? ??
+        currentItem['meaning2_ko'] as String;
     final example = currentItem['example'] as String;
     final correct = currentItem['correct'] as int;
-    final explanation = currentItem['explanation_ko'] as String;
+    final explanation =
+        currentItem['explanation$meaningSuffix'] as String? ??
+        currentItem['explanation_ko'] as String;
 
     return Scaffold(
       appBar: AppBar(

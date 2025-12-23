@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
 import '../services/ad_service.dart';
+import '../services/translation_service.dart';
 
 /// 연어 매칭 퀴즈 화면
 /// 명사와 어울리는 동사 선택
@@ -208,10 +209,23 @@ class _CollocationQuizScreenState extends State<CollocationQuizScreen> {
     final currentItem = _quizItems[_currentIndex];
     final noun = currentItem['noun'] as String;
     final nounReading = currentItem['noun_reading'] as String;
-    final nounMeaning = currentItem['noun_meaning_ko'] as String;
+
+    // 언어 설정에 따른 필드 선택
+    final lang = TranslationService.instance.currentLanguage;
+    final meaningSuffix =
+        lang == 'ko'
+            ? '_ko'
+            : lang == 'zh'
+            ? '_zh'
+            : '_en';
+    final nounMeaning =
+        currentItem['noun_meaning$meaningSuffix'] as String? ??
+        currentItem['noun_meaning_ko'] as String;
     final correctVerb = currentItem['correct_verb'] as String;
     final fullExpression = currentItem['full_expression'] as String;
-    final meaningKo = currentItem['meaning_ko'] as String;
+    final meaningKo =
+        currentItem['meaning$meaningSuffix'] as String? ??
+        currentItem['meaning_ko'] as String;
 
     return Scaffold(
       appBar: AppBar(

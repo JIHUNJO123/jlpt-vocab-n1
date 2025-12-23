@@ -354,7 +354,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 4),
-                            if (false && word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                              Text(
+                            if (false &&
+                                word.partOfSpeech.isNotEmpty &&
+                                word.partOfSpeech != 'unknown') ...[
+                              Text(
                                 word.partOfSpeech,
                                 style: TextStyle(
                                   color: Colors.grey[600],

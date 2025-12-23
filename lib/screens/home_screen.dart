@@ -371,20 +371,21 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
         ),
-        _buildMenuCard(
-          icon: Icons.edit_note,
-          title: l10n.sentenceQuiz,
-          subtitle: l10n.fillInTheBlank,
-          color: Colors.purple,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SentenceQuizScreen(),
-              ),
-            );
-          },
-        ),
+        // 문장 퀴즈는 예문 데이터가 없어서 임시로 숨김
+        // _buildMenuCard(
+        //   icon: Icons.edit_note,
+        //   title: l10n.sentenceQuiz,
+        //   subtitle: l10n.fillInTheBlank,
+        //   color: Colors.purple,
+        //   onTap: () {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(
+        //         builder: (context) => const SentenceQuizScreen(),
+        //       ),
+        //     );
+        //   },
+        // ),
         _buildMenuCard(
           icon: Icons.compare_arrows,
           title: l10n.synonymQuiz,
