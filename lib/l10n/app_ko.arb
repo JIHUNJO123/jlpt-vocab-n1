@@ -102,6 +102,11 @@
   "greatResult": "잘했어요! 계속 화이팅!",
   "goodResult": "좋아요! 계속 연습하세요!",
   "close": "닫기",
+  "synonymQuiz": "뉘앙스 대결",
+  "synonymQuizDesc": "맥락에 맞는 유의어 선택",
+  "collocationQuiz": "연어 매칭",
+  "collocationQuizDesc": "어울리는 동사 맞추기",
+  "selectMatchingVerb": "어울리는 동사를 선택하세요",
   "marketing": "마케팅",
   "support": "지원"
 }

@@ -11,6 +11,8 @@ import 'word_detail_screen.dart';
 import 'favorites_screen.dart';
 import 'quiz_screen.dart';
 import 'sentence_quiz_screen.dart';
+import 'synonym_quiz_screen.dart';
+import 'collocation_quiz_screen.dart';
 import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -158,7 +160,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 12),
                   _buildMenuGrid(),
-
                 ],
               ),
             ),
@@ -378,7 +379,37 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SentenceQuizScreen()),
+              MaterialPageRoute(
+                builder: (context) => const SentenceQuizScreen(),
+              ),
+            );
+          },
+        ),
+        _buildMenuCard(
+          icon: Icons.compare_arrows,
+          title: l10n.synonymQuiz,
+          subtitle: l10n.synonymQuizDesc,
+          color: Colors.teal,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SynonymQuizScreen(),
+              ),
+            );
+          },
+        ),
+        _buildMenuCard(
+          icon: Icons.link,
+          title: l10n.collocationQuiz,
+          subtitle: l10n.collocationQuizDesc,
+          color: Colors.indigo,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CollocationQuizScreen(),
+              ),
             );
           },
         ),
@@ -436,5 +467,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-

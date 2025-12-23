@@ -102,6 +102,11 @@
   "greatResult": "Great job! Keep it up!",
   "goodResult": "Good effort! Keep practicing!",
   "close": "Close",
+  "synonymQuiz": "Nuance Battle",
+  "synonymQuizDesc": "Choose the right synonym",
+  "collocationQuiz": "Collocation Match",
+  "collocationQuizDesc": "Match words with verbs",
+  "selectMatchingVerb": "Select the matching verb",
   "marketing": "Marketing",
   "support": "Support"
 }

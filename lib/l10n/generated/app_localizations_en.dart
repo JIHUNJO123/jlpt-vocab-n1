@@ -296,6 +296,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get close => 'Close';
 
   @override
+  String get synonymQuiz => 'Nuance Battle';
+
+  @override
+  String get synonymQuizDesc => 'Choose the right synonym';
+
+  @override
+  String get collocationQuiz => 'Collocation Match';
+
+  @override
+  String get collocationQuizDesc => 'Match words with verbs';
+
+  @override
+  String get selectMatchingVerb => 'Select the matching verb';
+
+  @override
   String get marketing => 'Marketing';
 
   @override

@@ -296,6 +296,21 @@ class AppLocalizationsKo extends AppLocalizations {
   String get close => '닫기';
 
   @override
+  String get synonymQuiz => '뉘앙스 대결';
+
+  @override
+  String get synonymQuizDesc => '맥락에 맞는 유의어 선택';
+
+  @override
+  String get collocationQuiz => '연어 매칭';
+
+  @override
+  String get collocationQuizDesc => '어울리는 동사 맞추기';
+
+  @override
+  String get selectMatchingVerb => '어울리는 동사를 선택하세요';
+
+  @override
   String get marketing => '마케팅';
 
   @override

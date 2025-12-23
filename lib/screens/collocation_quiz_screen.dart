@@ -1,177 +1,91 @@
-import 'dart:math';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:jlpt_vocab_app_n1/l10n/generated/app_localizations.dart';
-import '../db/database_helper.dart';
-import '../models/word.dart';
-import '../services/translation_service.dart';
 import '../services/ad_service.dart';
 
-/// 예문 빈칸 퀴즈 화면
-/// N1 전용 실전형 학습 기능 - 예문에서 단어를 빈칸으로 만들어 문맥 파악력 테스트
-class SentenceQuizScreen extends StatefulWidget {
-  final String? level;
-
-  const SentenceQuizScreen({super.key, this.level});
+/// 연어 매칭 퀴즈 화면
+/// 명사와 어울리는 동사 선택
+class CollocationQuizScreen extends StatefulWidget {
+  const CollocationQuizScreen({super.key});
 
   @override
-  State<SentenceQuizScreen> createState() => _SentenceQuizScreenState();
+  State<CollocationQuizScreen> createState() => _CollocationQuizScreenState();
 }
 
-class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
-  List<Word> _words = [];
-  List<Word> _quizWords = [];
+class _CollocationQuizScreenState extends State<CollocationQuizScreen> {
+  List<Map<String, dynamic>> _collocations = [];
+  List<Map<String, dynamic>> _quizItems = [];
   bool _isLoading = true;
   int _currentIndex = 0;
   int _score = 0;
   final int _totalQuestions = 10;
-  List<String> _options = [];
   String? _selectedOption;
   bool _answered = false;
-  String _sentenceWithBlank = '';
-  Map<int, String> _translatedDefinitions = {};
+  List<String> _options = [];
 
   @override
   void initState() {
     super.initState();
-    _loadWords();
+    _loadCollocations();
   }
 
-  Future<void> _loadWords() async {
-    final jsonWords = await DatabaseHelper.instance.getWordsWithTranslations();
+  Future<void> _loadCollocations() async {
+    try {
+      final String response = await rootBundle.loadString(
+        'assets/data/collocations.json',
+      );
+      final List<dynamic> data = json.decode(response);
 
-    // 예문이 있는 단어만 필터링
-    List<Word> words =
-        jsonWords.where((w) {
-          final hasExample = w.example.isNotEmpty && w.example.length > 10;
-          final wordInExample =
-              w.example.contains(w.word) ||
-              (w.kanji != null && w.example.contains(w.kanji!)) ||
-              (w.hiragana != null && w.example.contains(w.hiragana!));
-          return hasExample && wordInExample;
-        }).toList();
+      final collocations = data.cast<Map<String, dynamic>>();
+      collocations.shuffle();
 
-    if (widget.level != null) {
-      words = words.where((w) => w.level == widget.level).toList();
-    }
-
-    words.shuffle();
-    final quizWords = words.take(_totalQuestions).toList();
-
-    // 번역 로드
-    final translationService = TranslationService.instance;
-    await translationService.init();
-    final langCode = translationService.currentLanguage;
-
-    if (translationService.needsTranslation) {
-      for (var word in words) {
-        final embeddedTranslation = word.getEmbeddedTranslation(
-          langCode,
-          'definition',
-        );
-        if (embeddedTranslation != null && embeddedTranslation.isNotEmpty) {
-          _translatedDefinitions[word.id] = embeddedTranslation;
-        }
-      }
-    }
-
-    if (mounted) {
       setState(() {
-        _words = words;
-        _quizWords = quizWords;
+        _collocations = collocations;
+        _quizItems = collocations.take(_totalQuestions).toList();
         _isLoading = false;
-        if (_quizWords.isNotEmpty) {
-          _generateQuestion();
-        }
+        _generateOptions();
+      });
+    } catch (e) {
+      print('Error loading collocations: $e');
+      setState(() {
+        _isLoading = false;
       });
     }
   }
 
-  /// 예문에서 단어를 빈칸으로 변환
-  String _createBlankSentence(Word word) {
-    String sentence = word.example;
+  void _generateOptions() {
+    if (_quizItems.isEmpty || _currentIndex >= _quizItems.length) return;
 
-    // 단어를 빈칸으로 치환 (우선순위: 한자 > 히라가나 > word)
-    if (word.kanji != null && sentence.contains(word.kanji!)) {
-      sentence = sentence.replaceFirst(word.kanji!, '（　　　）');
-    } else if (word.hiragana != null && sentence.contains(word.hiragana!)) {
-      sentence = sentence.replaceFirst(word.hiragana!, '（　　　）');
-    } else if (sentence.contains(word.word)) {
-      sentence = sentence.replaceFirst(word.word, '（　　　）');
-    }
+    final currentItem = _quizItems[_currentIndex];
+    final correctVerb = currentItem['correct_verb'] as String;
+    final wrongVerbs = (currentItem['wrong_verbs'] as List).cast<String>();
 
-    return sentence;
+    _options = [correctVerb, ...wrongVerbs.take(3)]..shuffle();
   }
 
-  void _generateQuestion() {
-    if (_quizWords.isEmpty || _currentIndex >= _quizWords.length) return;
-
-    final currentWord = _quizWords[_currentIndex];
-    _sentenceWithBlank = _createBlankSentence(currentWord);
-
-    // 정답 (표시용 단어)
-    final correctAnswer =
-        currentWord.kanji ?? currentWord.hiragana ?? currentWord.word;
-
-    // 오답 생성 - 비슷한 품사의 단어들 중에서 선택
-    final wrongAnswers = <String>[];
-    final usedWords = <String>{correctAnswer};
-    final random = Random();
-
-    // 같은 품사 단어들 우선
-    final samePosWords =
-        _words
-            .where(
-              (w) =>
-                  w.partOfSpeech == currentWord.partOfSpeech &&
-                  w.id != currentWord.id,
-            )
-            .toList();
-
-    while (wrongAnswers.length < 3) {
-      Word? wrongWord;
-
-      if (samePosWords.isNotEmpty && wrongAnswers.length < 2) {
-        // 같은 품사에서 선택
-        wrongWord = samePosWords[random.nextInt(samePosWords.length)];
-      } else {
-        // 전체에서 랜덤 선택
-        wrongWord = _words[random.nextInt(_words.length)];
-      }
-
-      final wrongAnswer =
-          wrongWord.kanji ?? wrongWord.hiragana ?? wrongWord.word;
-      if (!usedWords.contains(wrongAnswer)) {
-        usedWords.add(wrongAnswer);
-        wrongAnswers.add(wrongAnswer);
-      }
-    }
-
-    _options = [correctAnswer, ...wrongAnswers]..shuffle();
-  }
-
-  void _checkAnswer(String selectedOption) {
+  void _checkAnswer(String selected) {
     if (_answered) return;
 
-    final currentWord = _quizWords[_currentIndex];
-    final correctAnswer =
-        currentWord.kanji ?? currentWord.hiragana ?? currentWord.word;
+    final currentItem = _quizItems[_currentIndex];
+    final correctVerb = currentItem['correct_verb'] as String;
 
     setState(() {
       _answered = true;
-      _selectedOption = selectedOption;
-      if (selectedOption == correctAnswer) {
+      _selectedOption = selected;
+      if (selected == correctVerb) {
         _score++;
       }
     });
   }
 
   void _nextQuestion() {
-    if (_currentIndex < _quizWords.length - 1) {
+    if (_currentIndex < _quizItems.length - 1) {
       setState(() {
         _currentIndex++;
         _answered = false;
         _selectedOption = null;
-        _generateQuestion();
+        _generateOptions();
       });
     } else {
       _showResultDialog();
@@ -187,7 +101,7 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
     if (!mounted) return;
 
     final l10n = AppLocalizations.of(context)!;
-    final percentage = (_score / _quizWords.length * 100).round();
+    final percentage = (_score / _quizItems.length * 100).round();
 
     showDialog(
       context: context,
@@ -214,7 +128,7 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  '$_score / ${_quizWords.length}',
+                  '$_score / ${_quizItems.length}',
                   style: const TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -261,14 +175,14 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
   }
 
   void _restartQuiz() {
+    _collocations.shuffle();
     setState(() {
       _currentIndex = 0;
       _score = 0;
       _answered = false;
       _selectedOption = null;
-      _quizWords.shuffle();
-      _quizWords = _quizWords.take(_totalQuestions).toList();
-      _generateQuestion();
+      _quizItems = _collocations.take(_totalQuestions).toList();
+      _generateOptions();
     });
   }
 
@@ -279,47 +193,29 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
 
     if (_isLoading) {
       return Scaffold(
-        appBar: AppBar(title: Text(l10n.sentenceQuiz)),
+        appBar: AppBar(title: Text(l10n.collocationQuiz)),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
 
-    if (_quizWords.isEmpty) {
+    if (_quizItems.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: Text(l10n.sentenceQuiz)),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.sentiment_dissatisfied,
-                  size: 64,
-                  color: Colors.grey[400],
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.noExamplesAvailable,
-                  style: TextStyle(fontSize: 18, color: Colors.grey[600]),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
+        appBar: AppBar(title: Text(l10n.collocationQuiz)),
+        body: Center(child: Text(l10n.noExamplesAvailable)),
       );
     }
 
-    final currentWord = _quizWords[_currentIndex];
-    final correctAnswer =
-        currentWord.kanji ?? currentWord.hiragana ?? currentWord.word;
-    final definition =
-        _translatedDefinitions[currentWord.id] ?? currentWord.definition;
+    final currentItem = _quizItems[_currentIndex];
+    final noun = currentItem['noun'] as String;
+    final nounReading = currentItem['noun_reading'] as String;
+    final nounMeaning = currentItem['noun_meaning_ko'] as String;
+    final correctVerb = currentItem['correct_verb'] as String;
+    final fullExpression = currentItem['full_expression'] as String;
+    final meaningKo = currentItem['meaning_ko'] as String;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.sentenceQuiz),
+        title: Text(l10n.collocationQuiz),
         actions: [
           Center(
             child: Padding(
@@ -340,7 +236,7 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
           children: [
             // 진행률 바
             LinearProgressIndicator(
-              value: (_currentIndex + 1) / _quizWords.length,
+              value: (_currentIndex + 1) / _quizItems.length,
               backgroundColor: Colors.grey[200],
               valueColor: AlwaysStoppedAnimation<Color>(theme.primaryColor),
             ),
@@ -351,7 +247,7 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.star, color: Colors.amber, size: 24),
+                  const Icon(Icons.star, color: Colors.amber, size: 24),
                   const SizedBox(width: 8),
                   Text(
                     '${l10n.score}: $_score',
@@ -377,22 +273,18 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: theme.primaryColor.withOpacity(0.1),
+                        color: Colors.teal.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(
-                            Icons.edit_note,
-                            size: 20,
-                            color: theme.primaryColor,
-                          ),
+                          const Icon(Icons.link, size: 20, color: Colors.teal),
                           const SizedBox(width: 8),
                           Text(
-                            l10n.fillInTheBlank,
-                            style: TextStyle(
-                              color: theme.primaryColor,
+                            l10n.collocationQuiz,
+                            style: const TextStyle(
+                              color: Colors.teal,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -401,7 +293,7 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // 예문 (빈칸 포함)
+                    // 문제 카드
                     Card(
                       elevation: 4,
                       shape: RoundedRectangleBorder(
@@ -412,55 +304,85 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                         child: Column(
                           children: [
                             Text(
-                              _sentenceWithBlank,
-                              style: const TextStyle(
-                                fontSize: 22,
-                                height: 1.8,
-                                fontWeight: FontWeight.w500,
+                              l10n.selectMatchingVerb,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey[600],
                               ),
-                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 16),
+                            // 명사 표시
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  noun,
+                                  style: const TextStyle(
+                                    fontSize: 36,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                const Text('を', style: TextStyle(fontSize: 36)),
+                                const SizedBox(width: 8),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 24,
+                                    vertical: 12,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: theme.primaryColor,
+                                      width: 2,
+                                      style: BorderStyle.solid,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const Text(
+                                    '？',
+                                    style: TextStyle(
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              '($nounReading) $nounMeaning',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey[600],
+                              ),
                             ),
                             if (_answered) ...[
                               const Divider(height: 32),
-                              // 정답 표시
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '${l10n.answer}: ',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.grey[600],
-                                    ),
-                                  ),
-                                  Text(
-                                    correctAnswer,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: theme.primaryColor,
-                                    ),
-                                  ),
-                                  if (currentWord.hiragana != null &&
-                                      currentWord.kanji != null)
+                              Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.green.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Column(
+                                  children: [
                                     Text(
-                                      ' (${currentWord.hiragana})',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.grey[600],
+                                      fullExpression,
+                                      style: const TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                ],
-                              ),
-                              const SizedBox(height: 8),
-                              // 뜻 표시
-                              Text(
-                                definition,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey[700],
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      meaningKo,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                textAlign: TextAlign.center,
                               ),
                             ],
                           ],
@@ -469,26 +391,22 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                     ),
                     const SizedBox(height: 32),
 
-                    // 선택지
+                    // 선택지들
                     ...List.generate(_options.length, (index) {
                       final option = _options[index];
                       final isSelected = _selectedOption == option;
-                      final isCorrect = option == correctAnswer;
+                      final isCorrect = option == correctVerb;
 
                       Color? backgroundColor;
                       Color? borderColor;
-                      Color textColor =
-                          theme.textTheme.bodyLarge?.color ?? Colors.black;
 
                       if (_answered) {
                         if (isCorrect) {
                           backgroundColor = Colors.green.withOpacity(0.2);
                           borderColor = Colors.green;
-                          textColor = Colors.green[800]!;
                         } else if (isSelected && !isCorrect) {
                           backgroundColor = Colors.red.withOpacity(0.2);
                           borderColor = Colors.red;
-                          textColor = Colors.red[800]!;
                         }
                       } else if (isSelected) {
                         backgroundColor = theme.primaryColor.withOpacity(0.1);
@@ -542,10 +460,9 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                                   Expanded(
                                     child: Text(
                                       option,
-                                      style: TextStyle(
-                                        fontSize: 20,
+                                      style: const TextStyle(
+                                        fontSize: 22,
                                         fontWeight: FontWeight.w500,
-                                        color: textColor,
                                       ),
                                     ),
                                   ),
@@ -581,7 +498,7 @@ class _SentenceQuizScreenState extends State<SentenceQuizScreen> {
                     ),
                   ),
                   child: Text(
-                    _currentIndex < _quizWords.length - 1
+                    _currentIndex < _quizItems.length - 1
                         ? l10n.next
                         : l10n.showResults,
                     style: const TextStyle(fontSize: 18),

@@ -79,11 +79,7 @@ class DatabaseHelper {
   Future<void> _loadInitialData(Database db) async {
     try {
       // Load all word files: N5-N3, N2, N1
-      final jsonFiles = [
-        
-        
-        'assets/data/words_n1.json',
-      ];
+      final jsonFiles = ['assets/data/words_n1.json'];
 
       int totalWords = 0;
       for (final filePath in jsonFiles) {
@@ -92,11 +88,11 @@ class DatabaseHelper {
           final List<dynamic> data = json.decode(response);
 
           for (var wordJson in data) {
-        // translations�?JSON 문자?�로 ?�??
-        String? translationsJson;
-        if (wordJson['translations'] != null) {
-          translationsJson = json.encode(wordJson['translations']);
-        }
+            // translations�?JSON 문자?�로 ?�??
+            String? translationsJson;
+            if (wordJson['translations'] != null) {
+              translationsJson = json.encode(wordJson['translations']);
+            }
 
             await db.insert('words', {
               'id': wordJson['id'],
@@ -281,9 +277,7 @@ class DatabaseHelper {
     try {
       final List<Word> allWords = [];
       // 번역???�는 ?�일??먼�? 로드! (band*.json??번역 ?�이???�음)
-      final jsonFiles = [
-        'assets/data/words_n1.json',
-      ];
+      final jsonFiles = ['assets/data/words_n1.json'];
 
       for (final file in jsonFiles) {
         try {
@@ -454,5 +448,3 @@ class DatabaseHelper {
     db.close();
   }
 }
-
-

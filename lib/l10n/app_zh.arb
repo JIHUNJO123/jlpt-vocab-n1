@@ -104,6 +104,11 @@
   "greatResult": "很好！继续加油！",
   "goodResult": "不错！继续练习！",
   "close": "关闭",
+  "synonymQuiz": "语感对决",
+  "synonymQuizDesc": "选择正确的近义词",
+  "collocationQuiz": "搭配匹配",
+  "collocationQuizDesc": "匹配正确的动词",
+  "selectMatchingVerb": "选择匹配的动词",
   "marketing": "营销",
   "support": "支持"
 }

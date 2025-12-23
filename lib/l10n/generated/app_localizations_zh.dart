@@ -296,6 +296,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get close => '关闭';
 
   @override
+  String get synonymQuiz => '语感对决';
+
+  @override
+  String get synonymQuizDesc => '选择正确的近义词';
+
+  @override
+  String get collocationQuiz => '搭配匹配';
+
+  @override
+  String get collocationQuizDesc => '匹配正确的动词';
+
+  @override
+  String get selectMatchingVerb => '选择匹配的动词';
+
+  @override
   String get marketing => '营销';
 
   @override

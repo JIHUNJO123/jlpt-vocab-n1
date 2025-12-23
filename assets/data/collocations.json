@@ -1,0 +1,947 @@
+[
+  {
+    "noun": "心血",
+    "noun_reading": "しんけつ",
+    "noun_meaning_ko": "심혈",
+    "correct_verb": "注ぐ",
+    "correct_verb_reading": "そそぐ",
+    "correct_verb_meaning_ko": "쏟다",
+    "wrong_verbs": [
+      "込める",
+      "傾ける",
+      "捧げる"
+    ],
+    "full_expression": "心血を注ぐ",
+    "meaning_ko": "심혈을 기울이다"
+  },
+  {
+    "noun": "信頼",
+    "noun_reading": "しんらい",
+    "noun_meaning_ko": "신뢰",
+    "correct_verb": "得る",
+    "correct_verb_reading": "える",
+    "correct_verb_meaning_ko": "얻다",
+    "wrong_verbs": [
+      "築く",
+      "深める",
+      "裏切る"
+    ],
+    "full_expression": "信頼を得る",
+    "meaning_ko": "신뢰를 얻다"
+  },
+  {
+    "noun": "影響",
+    "noun_reading": "えいきょう",
+    "noun_meaning_ko": "영향",
+    "correct_verb": "与える",
+    "correct_verb_reading": "あたえる",
+    "correct_verb_meaning_ko": "주다",
+    "wrong_verbs": [
+      "受ける",
+      "受け止める",
+      "避ける"
+    ],
+    "full_expression": "影響を与える",
+    "meaning_ko": "영향을 주다"
+  },
+  {
+    "noun": "努力",
+    "noun_reading": "どりょく",
+    "noun_meaning_ko": "노력",
+    "correct_verb": "する",
+    "correct_verb_reading": "する",
+    "correct_verb_meaning_ko": "하다",
+    "wrong_verbs": [
+      "怠る",
+      "放棄する",
+      "甘える"
+    ],
+    "full_expression": "努力をする",
+    "meaning_ko": "노력을 하다"
+  },
+  {
+    "noun": "決断",
+    "noun_reading": "けつだん",
+    "noun_meaning_ko": "결단",
+    "correct_verb": "下す",
+    "correct_verb_reading": "くだす",
+    "correct_verb_meaning_ko": "내리다",
+    "wrong_verbs": [
+      "迷う",
+      "撤回する",
+      "再考する"
+    ],
+    "full_expression": "決断を下す",
+    "meaning_ko": "결단을 내리다"
+  },
+  {
+    "noun": "責任",
+    "noun_reading": "せきにん",
+    "noun_meaning_ko": "책임",
+    "correct_verb": "負う",
+    "correct_verb_reading": "おう",
+    "correct_verb_meaning_ko": "지다",
+    "wrong_verbs": [
+      "逃れる",
+      "放棄する",
+      "無視する"
+    ],
+    "full_expression": "責任を負う",
+    "meaning_ko": "책임을 지다"
+  },
+  {
+    "noun": "問題",
+    "noun_reading": "もんだい",
+    "noun_meaning_ko": "문제",
+    "correct_verb": "解決する",
+    "correct_verb_reading": "かいけつする",
+    "correct_verb_meaning_ko": "해결하다",
+    "wrong_verbs": [
+      "放置する",
+      "悪化させる",
+      "無視する"
+    ],
+    "full_expression": "問題を解決する",
+    "meaning_ko": "문제를 해결하다"
+  },
+  {
+    "noun": "関係",
+    "noun_reading": "かんけい",
+    "noun_meaning_ko": "관계",
+    "correct_verb": "築く",
+    "correct_verb_reading": "きずく",
+    "correct_verb_meaning_ko": "쌓다",
+    "wrong_verbs": [
+      "壊す",
+      "断絶する",
+      "無視する"
+    ],
+    "full_expression": "関係を築く",
+    "meaning_ko": "관계를 쌓다"
+  },
+  {
+    "noun": "状況",
+    "noun_reading": "じょうきょう",
+    "noun_meaning_ko": "상황",
+    "correct_verb": "把握する",
+    "correct_verb_reading": "はあくする",
+    "correct_verb_meaning_ko": "파악하다",
+    "wrong_verbs": [
+      "逃げる",
+      "混乱させる",
+      "無視する"
+    ],
+    "full_expression": "状況を把握する",
+    "meaning_ko": "상황을 파악하다"
+  },
+  {
+    "noun": "経験",
+    "noun_reading": "けいけん",
+    "noun_meaning_ko": "경험",
+    "correct_verb": "積む",
+    "correct_verb_reading": "つむ",
+    "correct_verb_meaning_ko": "쌓다",
+    "wrong_verbs": [
+      "忘れる",
+      "避ける",
+      "無視する"
+    ],
+    "full_expression": "経験を積む",
+    "meaning_ko": "경험을 쌓다"
+  },
+  {
+    "noun": "成長",
+    "noun_reading": "せいちょう",
+    "noun_meaning_ko": "성장",
+    "correct_verb": "促す",
+    "correct_verb_reading": "うながす",
+    "correct_verb_meaning_ko": "촉진하다",
+    "wrong_verbs": [
+      "止める",
+      "妨げる",
+      "後退する"
+    ],
+    "full_expression": "成長を促す",
+    "meaning_ko": "성장을 촉진하다"
+  },
+  {
+    "noun": "意見",
+    "noun_reading": "いけん",
+    "noun_meaning_ko": "의견",
+    "correct_verb": "述べる",
+    "correct_verb_reading": "のべる",
+    "correct_verb_meaning_ko": "서술하다",
+    "wrong_verbs": [
+      "無視する",
+      "放置する",
+      "反論する"
+    ],
+    "full_expression": "意見を述べる",
+    "meaning_ko": "의견을 서술하다"
+  },
+  {
+    "noun": "結果",
+    "noun_reading": "けっか",
+    "noun_meaning_ko": "결과",
+    "correct_verb": "得る",
+    "correct_verb_reading": "える",
+    "correct_verb_meaning_ko": "얻다",
+    "wrong_verbs": [
+      "失う",
+      "無駄にする",
+      "避ける"
+    ],
+    "full_expression": "結果を得る",
+    "meaning_ko": "결과를 얻다"
+  },
+  {
+    "noun": "情報",
+    "noun_reading": "じょうほう",
+    "noun_meaning_ko": "정보",
+    "correct_verb": "収集する",
+    "correct_verb_reading": "しゅうしゅうする",
+    "correct_verb_meaning_ko": "수집하다",
+    "wrong_verbs": [
+      "無視する",
+      "混乱させる",
+      "避ける"
+    ],
+    "full_expression": "情報を収集する",
+    "meaning_ko": "정보를 수집하다"
+  },
+  {
+    "noun": "努力",
+    "noun_reading": "どりょく",
+    "noun_meaning_ko": "노력",
+    "correct_verb": "重ねる",
+    "correct_verb_reading": "かさねる",
+    "correct_verb_meaning_ko": "겹치다",
+    "wrong_verbs": [
+      "怠る",
+      "放棄する",
+      "甘える"
+    ],
+    "full_expression": "努力を重ねる",
+    "meaning_ko": "노력을 겹치다"
+  },
+  {
+    "noun": "生活",
+    "noun_reading": "せいかつ",
+    "noun_meaning_ko": "생활",
+    "correct_verb": "向上させる",
+    "correct_verb_reading": "こうじょうさせる",
+    "correct_verb_meaning_ko": "향상시키다",
+    "wrong_verbs": [
+      "崩れる",
+      "悪化させる",
+      "放置する"
+    ],
+    "full_expression": "生活を向上させる",
+    "meaning_ko": "생활을 향상시키다"
+  },
+  {
+    "noun": "技術",
+    "noun_reading": "ぎじゅつ",
+    "noun_meaning_ko": "기술",
+    "correct_verb": "習得する",
+    "correct_verb_reading": "しゅうとくする",
+    "correct_verb_meaning_ko": "습득하다",
+    "wrong_verbs": [
+      "放棄する",
+      "忘れる",
+      "妨げる"
+    ],
+    "full_expression": "技術を習得する",
+    "meaning_ko": "기술을 습득하다"
+  },
+  {
+    "noun": "信念",
+    "noun_reading": "しんねん",
+    "noun_meaning_ko": "신념",
+    "correct_verb": "持つ",
+    "correct_verb_reading": "もつ",
+    "correct_verb_meaning_ko": "가지다",
+    "wrong_verbs": [
+      "放棄する",
+      "揺らぐ",
+      "疑う"
+    ],
+    "full_expression": "信念を持つ",
+    "meaning_ko": "신념을 가지다"
+  },
+  {
+    "noun": "準備",
+    "noun_reading": "じゅんび",
+    "noun_meaning_ko": "준비",
+    "correct_verb": "整える",
+    "correct_verb_reading": "ととのえる",
+    "correct_verb_meaning_ko": "갖추다",
+    "wrong_verbs": [
+      "怠る",
+      "放置する",
+      "無視する"
+    ],
+    "full_expression": "準備を整える",
+    "meaning_ko": "준비를 갖추다"
+  },
+  {
+    "noun": "結果",
+    "noun_reading": "けっか",
+    "noun_meaning_ko": "결과",
+    "correct_verb": "示す",
+    "correct_verb_reading": "しめす",
+    "correct_verb_meaning_ko": "보이다",
+    "wrong_verbs": [
+      "隠す",
+      "無視する",
+      "否定する"
+    ],
+    "full_expression": "結果を示す",
+    "meaning_ko": "결과를 보이다"
+  },
+  {
+    "noun": "意志",
+    "noun_reading": "いし",
+    "noun_meaning_ko": "의지",
+    "correct_verb": "持つ",
+    "correct_verb_reading": "もつ",
+    "correct_verb_meaning_ko": "가지다",
+    "wrong_verbs": [
+      "失う",
+      "揺らぐ",
+      "放棄する"
+    ],
+    "full_expression": "意志を持つ",
+    "meaning_ko": "의지를 가지다"
+  },
+  {
+    "noun": "協力",
+    "noun_reading": "きょうりょく",
+    "noun_meaning_ko": "협력",
+    "correct_verb": "得る",
+    "correct_verb_reading": "える",
+    "correct_verb_meaning_ko": "얻다",
+    "wrong_verbs": [
+      "拒否する",
+      "妨げる",
+      "無視する"
+    ],
+    "full_expression": "協力を得る",
+    "meaning_ko": "협력을 얻다"
+  },
+  {
+    "noun": "知識",
+    "noun_reading": "ちしき",
+    "noun_meaning_ko": "지식",
+    "correct_verb": "深める",
+    "correct_verb_reading": "ふかめる",
+    "correct_verb_meaning_ko": "깊게 하다",
+    "wrong_verbs": [
+      "忘れる",
+      "放棄する",
+      "無視する"
+    ],
+    "full_expression": "知識を深める",
+    "meaning_ko": "지식을 깊게 하다"
+  },
+  {
+    "noun": "目標",
+    "noun_reading": "もくひょう",
+    "noun_meaning_ko": "목표",
+    "correct_verb": "設定する",
+    "correct_verb_reading": "せっていする",
+    "correct_verb_meaning_ko": "설정하다",
+    "wrong_verbs": [
+      "放棄する",
+      "変更する",
+      "無視する"
+    ],
+    "full_expression": "目標を設定する",
+    "meaning_ko": "목표를 설정하다"
+  },
+  {
+    "noun": "責任",
+    "noun_reading": "せきにん",
+    "noun_meaning_ko": "책임",
+    "correct_verb": "果たす",
+    "correct_verb_reading": "はたす",
+    "correct_verb_meaning_ko": "다하다",
+    "wrong_verbs": [
+      "逃れる",
+      "放棄する",
+      "無視する"
+    ],
+    "full_expression": "責任を果たす",
+    "meaning_ko": "책임을 다하다"
+  },
+  {
+    "noun": "状況",
+    "noun_reading": "じょうきょう",
+    "noun_meaning_ko": "상황",
+    "correct_verb": "変える",
+    "correct_verb_reading": "かえる",
+    "correct_verb_meaning_ko": "바꾸다",
+    "wrong_verbs": [
+      "維持する",
+      "悪化させる",
+      "放置する"
+    ],
+    "full_expression": "状況を変える",
+    "meaning_ko": "상황을 바꾸다"
+  },
+  {
+    "noun": "理解",
+    "noun_reading": "りかい",
+    "noun_meaning_ko": "이해",
+    "correct_verb": "深める",
+    "correct_verb_reading": "ふかめる",
+    "correct_verb_meaning_ko": "깊게 하다",
+    "wrong_verbs": [
+      "誤解する",
+      "無視する",
+      "放棄する"
+    ],
+    "full_expression": "理解を深める",
+    "meaning_ko": "이해를 깊게 하다"
+  },
+  {
+    "noun": "交流",
+    "noun_reading": "こうりゅう",
+    "noun_meaning_ko": "교류",
+    "correct_verb": "促進する",
+    "correct_verb_reading": "そくしんする",
+    "correct_verb_meaning_ko": "촉진하다",
+    "wrong_verbs": [
+      "妨げる",
+      "無視する",
+      "消滅する"
+    ],
+    "full_expression": "交流を促進する",
+    "meaning_ko": "교류를 촉진하다"
+  },
+  {
+    "noun": "活動",
+    "noun_reading": "かつどう",
+    "noun_meaning_ko": "활동",
+    "correct_verb": "行う",
+    "correct_verb_reading": "おこなう",
+    "correct_verb_meaning_ko": "행하다",
+    "wrong_verbs": [
+      "怠ける",
+      "放棄する",
+      "中止する"
+    ],
+    "full_expression": "活動を行う",
+    "meaning_ko": "활동을 하다"
+  },
+  {
+    "noun": "成果",
+    "noun_reading": "せいか",
+    "noun_meaning_ko": "성과",
+    "correct_verb": "上げる",
+    "correct_verb_reading": "あげる",
+    "correct_verb_meaning_ko": "올리다",
+    "wrong_verbs": [
+      "下げる",
+      "放置する",
+      "無視する"
+    ],
+    "full_expression": "成果を上げる",
+    "meaning_ko": "성과를 올리다"
+  },
+  {
+    "noun": "感情",
+    "noun_reading": "かんじょう",
+    "noun_meaning_ko": "감정",
+    "correct_verb": "表現する",
+    "correct_verb_reading": "ひょうげんする",
+    "correct_verb_meaning_ko": "표현하다",
+    "wrong_verbs": [
+      "抑える",
+      "隠す",
+      "無視する"
+    ],
+    "full_expression": "感情を表現する",
+    "meaning_ko": "감정을 표현하다"
+  },
+  {
+    "noun": "理解",
+    "noun_reading": "りかい",
+    "noun_meaning_ko": "이해",
+    "correct_verb": "示す",
+    "correct_verb_reading": "しめす",
+    "correct_verb_meaning_ko": "보이다",
+    "wrong_verbs": [
+      "隠す",
+      "無視する",
+      "誤解する"
+    ],
+    "full_expression": "理解を示す",
+    "meaning_ko": "이해를 보이다"
+  },
+  {
+    "noun": "研究",
+    "noun_reading": "けんきゅう",
+    "noun_meaning_ko": "연구",
+    "correct_verb": "進める",
+    "correct_verb_reading": "すすめる",
+    "correct_verb_meaning_ko": "진행하다",
+    "wrong_verbs": [
+      "中止する",
+      "放置する",
+      "怠ける"
+    ],
+    "full_expression": "研究を進める",
+    "meaning_ko": "연구를 진행하다"
+  },
+  {
+    "noun": "挑戦",
+    "noun_reading": "ちょうせん",
+    "noun_meaning_ko": "도전",
+    "correct_verb": "する",
+    "correct_verb_reading": "する",
+    "correct_verb_meaning_ko": "하다",
+    "wrong_verbs": [
+      "逃げる",
+      "放棄する",
+      "怠ける"
+    ],
+    "full_expression": "挑戦をする",
+    "meaning_ko": "도전을 하다"
+  },
+  {
+    "noun": "意識",
+    "noun_reading": "いしき",
+    "noun_meaning_ko": "의식",
+    "correct_verb": "高める",
+    "correct_verb_reading": "たかめる",
+    "correct_verb_meaning_ko": "높이다",
+    "wrong_verbs": [
+      "低下させる",
+      "無視する",
+      "怠ける"
+    ],
+    "full_expression": "意識を高める",
+    "meaning_ko": "의식을 높이다"
+  },
+  {
+    "noun": "交流",
+    "noun_reading": "こうりゅう",
+    "noun_meaning_ko": "교류",
+    "correct_verb": "深める",
+    "correct_verb_reading": "ふかめる",
+    "correct_verb_meaning_ko": "깊게 하다",
+    "wrong_verbs": [
+      "薄める",
+      "無視する",
+      "妨げる"
+    ],
+    "full_expression": "交流を深める",
+    "meaning_ko": "교류를 깊게 하다"
+  },
+  {
+    "noun": "挑戦",
+    "noun_reading": "ちょうせん",
+    "noun_meaning_ko": "도전",
+    "correct_verb": "続ける",
+    "correct_verb_reading": "つづける",
+    "correct_verb_meaning_ko": "계속하다",
+    "wrong_verbs": [
+      "放棄する",
+      "怠ける",
+      "中断する"
+    ],
+    "full_expression": "挑戦を続ける",
+    "meaning_ko": "도전을 계속하다"
+  },
+  {
+    "noun": "役割",
+    "noun_reading": "やくわり",
+    "noun_meaning_ko": "역할",
+    "correct_verb": "果たす",
+    "correct_verb_reading": "はたす",
+    "correct_verb_meaning_ko": "다하다",
+    "wrong_verbs": [
+      "放棄する",
+      "怠ける",
+      "無視する"
+    ],
+    "full_expression": "役割を果たす",
+    "meaning_ko": "역할을 다하다"
+  },
+  {
+    "noun": "目標",
+    "noun_reading": "もくひょう",
+    "noun_meaning_ko": "목표",
+    "correct_verb": "達成する",
+    "correct_verb_reading": "たっせいする",
+    "correct_verb_meaning_ko": "달성하다",
+    "wrong_verbs": [
+      "放棄する",
+      "妨げる",
+      "無視する"
+    ],
+    "full_expression": "目標を達成する",
+    "meaning_ko": "목표를 달성하다"
+  },
+  {
+    "noun": "活動",
+    "noun_reading": "かつどう",
+    "noun_meaning_ko": "활동",
+    "correct_verb": "企画する",
+    "correct_verb_reading": "きかくする",
+    "correct_verb_meaning_ko": "기획하다",
+    "wrong_verbs": [
+      "怠ける",
+      "中止する",
+      "無視する"
+    ],
+    "full_expression": "活動を企画する",
+    "meaning_ko": "활동을 기획하다"
+  },
+  {
+    "noun": "情報",
+    "noun_reading": "じょうほう",
+    "noun_meaning_ko": "정보",
+    "correct_verb": "発信する",
+    "correct_verb_reading": "はっしんする",
+    "correct_verb_meaning_ko": "발신하다",
+    "wrong_verbs": [
+      "隠す",
+      "無視する",
+      "誤解する"
+    ],
+    "full_expression": "情報を発信する",
+    "meaning_ko": "정보를 발신하다"
+  },
+  {
+    "noun": "感謝",
+    "noun_reading": "かんしゃ",
+    "noun_meaning_ko": "감사",
+    "correct_verb": "伝える",
+    "correct_verb_reading": "つたえる",
+    "correct_verb_meaning_ko": "전하다",
+    "wrong_verbs": [
+      "無視する",
+      "怠ける",
+      "忘れる"
+    ],
+    "full_expression": "感謝を伝える",
+    "meaning_ko": "감사를 전하다"
+  },
+  {
+    "noun": "活動",
+    "noun_reading": "かつどう",
+    "noun_meaning_ko": "활동",
+    "correct_verb": "支援する",
+    "correct_verb_reading": "しえんする",
+    "correct_verb_meaning_ko": "지원하다",
+    "wrong_verbs": [
+      "中止する",
+      "怠ける",
+      "無視する"
+    ],
+    "full_expression": "活動を支援する",
+    "meaning_ko": "활동을 지원하다"
+  },
+  {
+    "noun": "信頼",
+    "noun_reading": "しんらい",
+    "noun_meaning_ko": "신뢰",
+    "correct_verb": "築く",
+    "correct_verb_reading": "きずく",
+    "correct_verb_meaning_ko": "쌓다",
+    "wrong_verbs": [
+      "崩す",
+      "無視する",
+      "壊す"
+    ],
+    "full_expression": "信頼を築く",
+    "meaning_ko": "신뢰를 쌓다"
+  },
+  {
+    "noun": "問題",
+    "noun_reading": "もんだい",
+    "noun_meaning_ko": "문제",
+    "correct_verb": "解決する",
+    "correct_verb_reading": "かいけつする",
+    "correct_verb_meaning_ko": "해결하다",
+    "wrong_verbs": [
+      "放置する",
+      "悪化させる",
+      "無視する"
+    ],
+    "full_expression": "問題を解決する",
+    "meaning_ko": "문제를 해결하다"
+  },
+  {
+    "noun": "時間",
+    "noun_reading": "じかん",
+    "noun_meaning_ko": "시간",
+    "correct_verb": "無駄にする",
+    "correct_verb_reading": "むだにする",
+    "correct_verb_meaning_ko": "낭비하다",
+    "wrong_verbs": [
+      "大切にする",
+      "使う",
+      "節約する"
+    ],
+    "full_expression": "時間を無駄にする",
+    "meaning_ko": "시간을 낭비하다"
+  },
+  {
+    "noun": "戦略",
+    "noun_reading": "せんりゃく",
+    "noun_meaning_ko": "전략",
+    "correct_verb": "立てる",
+    "correct_verb_reading": "たてる",
+    "correct_verb_meaning_ko": "세우다",
+    "wrong_verbs": [
+      "崩す",
+      "無視する",
+      "否定する"
+    ],
+    "full_expression": "戦略を立てる",
+    "meaning_ko": "전략을 세우다"
+  },
+  {
+    "noun": "プロジェクト",
+    "noun_reading": "ぷろじぇくと",
+    "noun_meaning_ko": "프로젝트",
+    "correct_verb": "進める",
+    "correct_verb_reading": "すすめる",
+    "correct_verb_meaning_ko": "진행하다",
+    "wrong_verbs": [
+      "中止する",
+      "放置する",
+      "怠ける"
+    ],
+    "full_expression": "プロジェクトを進める",
+    "meaning_ko": "프로젝트를 진행하다"
+  },
+  {
+    "noun": "プレッシャー",
+    "noun_reading": "ぷれっしゃー",
+    "noun_meaning_ko": "압박",
+    "correct_verb": "感じる",
+    "correct_verb_reading": "かんじる",
+    "correct_verb_meaning_ko": "느끼다",
+    "wrong_verbs": [
+      "無視する",
+      "逃げる",
+      "放棄する"
+    ],
+    "full_expression": "プレッシャーを感じる",
+    "meaning_ko": "압박을 느끼다"
+  },
+  {
+    "noun": "チャンス",
+    "noun_reading": "ちゃんす",
+    "noun_meaning_ko": "기회",
+    "correct_verb": "つかむ",
+    "correct_verb_reading": "つかむ",
+    "correct_verb_meaning_ko": "붙잡다",
+    "wrong_verbs": [
+      "逃す",
+      "無視する",
+      "放棄する"
+    ],
+    "full_expression": "チャンスをつかむ",
+    "meaning_ko": "기회를 붙잡다"
+  },
+  {
+    "noun": "未来",
+    "noun_reading": "みらい",
+    "noun_meaning_ko": "미래",
+    "correct_verb": "考える",
+    "correct_verb_reading": "かんがえる",
+    "correct_verb_meaning_ko": "생각하다",
+    "wrong_verbs": [
+      "無視する",
+      "怠ける",
+      "放棄する"
+    ],
+    "full_expression": "未来を考える",
+    "meaning_ko": "미래를 생각하다"
+  },
+  {
+    "noun": "知識",
+    "noun_reading": "ちしき",
+    "noun_meaning_ko": "지식",
+    "correct_verb": "増やす",
+    "correct_verb_reading": "ふやす",
+    "correct_verb_meaning_ko": "늘리다",
+    "wrong_verbs": [
+      "減らす",
+      "忘れる",
+      "無視する"
+    ],
+    "full_expression": "知識を増やす",
+    "meaning_ko": "지식을 늘리다"
+  },
+  {
+    "noun": "希望",
+    "noun_reading": "きぼう",
+    "noun_meaning_ko": "희망",
+    "correct_verb": "持つ",
+    "correct_verb_reading": "もつ",
+    "correct_verb_meaning_ko": "가지다",
+    "wrong_verbs": [
+      "諦める",
+      "失う",
+      "無視する"
+    ],
+    "full_expression": "希望を持つ",
+    "meaning_ko": "희망을 가지다"
+  },
+  {
+    "noun": "改革",
+    "noun_reading": "かいかく",
+    "noun_meaning_ko": "개혁",
+    "correct_verb": "進める",
+    "correct_verb_reading": "すすめる",
+    "correct_verb_meaning_ko": "진행하다",
+    "wrong_verbs": [
+      "放棄する",
+      "無視する",
+      "怠ける"
+    ],
+    "full_expression": "改革を進める",
+    "meaning_ko": "개혁을 진행하다"
+  },
+  {
+    "noun": "成績",
+    "noun_reading": "せいせき",
+    "noun_meaning_ko": "성적",
+    "correct_verb": "上げる",
+    "correct_verb_reading": "あげる",
+    "correct_verb_meaning_ko": "올리다",
+    "wrong_verbs": [
+      "下げる",
+      "無視する",
+      "怠ける"
+    ],
+    "full_expression": "成績を上げる",
+    "meaning_ko": "성적을 올리다"
+  },
+  {
+    "noun": "成果",
+    "noun_reading": "せいか",
+    "noun_meaning_ko": "성과",
+    "correct_verb": "確認する",
+    "correct_verb_reading": "かくにんする",
+    "correct_verb_meaning_ko": "확인하다",
+    "wrong_verbs": [
+      "無視する",
+      "忘れる",
+      "怠ける"
+    ],
+    "full_expression": "成果を確認する",
+    "meaning_ko": "성과를 확인하다"
+  },
+  {
+    "noun": "役割",
+    "noun_reading": "やくわり",
+    "noun_meaning_ko": "역할",
+    "correct_verb": "果たす",
+    "correct_verb_reading": "はたす",
+    "correct_verb_meaning_ko": "다하다",
+    "wrong_verbs": [
+      "怠ける",
+      "無視する",
+      "放棄する"
+    ],
+    "full_expression": "役割を果たす",
+    "meaning_ko": "역할을 다하다"
+  },
+  {
+    "noun": "努力",
+    "noun_reading": "どりょく",
+    "noun_meaning_ko": "노력",
+    "correct_verb": "続ける",
+    "correct_verb_reading": "つづける",
+    "correct_verb_meaning_ko": "계속하다",
+    "wrong_verbs": [
+      "放棄する",
+      "怠ける",
+      "中断する"
+    ],
+    "full_expression": "努力を続ける",
+    "meaning_ko": "노력을 계속하다"
+  },
+  {
+    "noun": "行動",
+    "noun_reading": "こうどう",
+    "noun_meaning_ko": "행동",
+    "correct_verb": "起こす",
+    "correct_verb_reading": "おこす",
+    "correct_verb_meaning_ko": "일으키다",
+    "wrong_verbs": [
+      "怠ける",
+      "無視する",
+      "放棄する"
+    ],
+    "full_expression": "行動を起こす",
+    "meaning_ko": "행동을 일으키다"
+  },
+  {
+    "noun": "考え",
+    "noun_reading": "かんがえ",
+    "noun_meaning_ko": "생각",
+    "correct_verb": "変える",
+    "correct_verb_reading": "かえる",
+    "correct_verb_meaning_ko": "바꾸다",
+    "wrong_verbs": [
+      "維持する",
+      "放置する",
+      "無視する"
+    ],
+    "full_expression": "考えを変える",
+    "meaning_ko": "생각을 바꾸다"
+  },
+  {
+    "noun": "意識",
+    "noun_reading": "いしき",
+    "noun_meaning_ko": "의식",
+    "correct_verb": "高める",
+    "correct_verb_reading": "たかめる",
+    "correct_verb_meaning_ko": "높이다",
+    "wrong_verbs": [
+      "低下させる",
+      "無視する",
+      "怠ける"
+    ],
+    "full_expression": "意識を高める",
+    "meaning_ko": "의식을 높이다"
+  },
+  {
+    "noun": "責任",
+    "noun_reading": "せきにん",
+    "noun_meaning_ko": "책임",
+    "correct_verb": "果たす",
+    "correct_verb_reading": "はたす",
+    "correct_verb_meaning_ko": "다하다",
+    "wrong_verbs": [
+      "逃れる",
+      "放棄する",
+      "無視する"
+    ],
+    "full_expression": "責任を果たす",
+    "meaning_ko": "책임을 다하다"
+  },
+  {
+    "noun": "成果",
+    "noun_reading": "せいか",
+    "noun_meaning_ko": "성과",
+    "correct_verb": "得る",
+    "correct_verb_reading": "える",
+    "correct_verb_meaning_ko": "얻다",
+    "wrong_verbs": [
+      "失う",
+      "無視する",
+      "妨げる"
+    ],
+    "full_expression": "成果を得る",
+    "meaning_ko": "성과를 얻다"
+  }
+]

@@ -667,6 +667,36 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get close;
 
+  /// No description provided for @synonymQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'Nuance Battle'**
+  String get synonymQuiz;
+
+  /// No description provided for @synonymQuizDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the right synonym'**
+  String get synonymQuizDesc;
+
+  /// No description provided for @collocationQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'Collocation Match'**
+  String get collocationQuiz;
+
+  /// No description provided for @collocationQuizDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Match words with verbs'**
+  String get collocationQuizDesc;
+
+  /// No description provided for @selectMatchingVerb.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the matching verb'**
+  String get selectMatchingVerb;
+
   /// No description provided for @marketing.
   ///
   /// In en, this message translates to:
