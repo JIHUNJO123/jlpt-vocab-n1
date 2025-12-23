@@ -92,8 +92,16 @@
   "parenthesesMode": "괄호 병기",
   "furiganaMode": "후리가나",
   "parenthesesExample": "예: 食べ物 (たべもの)",
-  "furiganaExample": "예: 食べ物 [たべもの]"
-,
+  "furiganaExample": "예: 食べ物 [たべもの]",
+  "sentenceQuiz": "문장 퀴즈",
+  "fillInTheBlank": "빈칸 채우기",
+  "noExamplesAvailable": "예문이 충분하지 않습니다",
+  "answer": "정답",
+  "showResults": "결과 보기",
+  "excellentResult": "훌륭해요! 만점!",
+  "greatResult": "잘했어요! 계속 화이팅!",
+  "goodResult": "좋아요! 계속 연습하세요!",
+  "close": "닫기",
   "marketing": "마케팅",
   "support": "지원"
 }

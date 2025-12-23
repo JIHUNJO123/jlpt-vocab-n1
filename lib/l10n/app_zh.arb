@@ -95,6 +95,15 @@
   "furiganaExample": "汉字上方显示假名",
   "showFuriganaInList": "在单词列表中显示假名",
   "showFuriganaInListDesc": "在单词列表中的汉字上方显示假名",
+  "sentenceQuiz": "句子测验",
+  "fillInTheBlank": "填空题",
+  "noExamplesAvailable": "没有可用的例句",
+  "answer": "答案",
+  "showResults": "显示结果",
+  "excellentResult": "太棒了！满分！",
+  "greatResult": "很好！继续加油！",
+  "goodResult": "不错！继续练习！",
+  "close": "关闭",
   "marketing": "营销",
   "support": "支持"
 }

@@ -613,6 +613,60 @@ abstract class AppLocalizations {
   /// **'e.g. 食べ物 [たべもの]'**
   String get furiganaExample;
 
+  /// No description provided for @sentenceQuiz.
+  ///
+  /// In en, this message translates to:
+  /// **'Sentence Quiz'**
+  String get sentenceQuiz;
+
+  /// No description provided for @fillInTheBlank.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in the blank'**
+  String get fillInTheBlank;
+
+  /// No description provided for @noExamplesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No examples available for quiz'**
+  String get noExamplesAvailable;
+
+  /// No description provided for @answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer'**
+  String get answer;
+
+  /// No description provided for @showResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Results'**
+  String get showResults;
+
+  /// No description provided for @excellentResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Excellent! Perfect score!'**
+  String get excellentResult;
+
+  /// No description provided for @greatResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Great job! Keep it up!'**
+  String get greatResult;
+
+  /// No description provided for @goodResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Good effort! Keep practicing!'**
+  String get goodResult;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// No description provided for @marketing.
   ///
   /// In en, this message translates to:

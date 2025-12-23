@@ -269,6 +269,33 @@ class AppLocalizationsKo extends AppLocalizations {
   String get furiganaExample => '예: 食べ物 [たべもの]';
 
   @override
+  String get sentenceQuiz => '문장 퀴즈';
+
+  @override
+  String get fillInTheBlank => '빈칸 채우기';
+
+  @override
+  String get noExamplesAvailable => '예문이 충분하지 않습니다';
+
+  @override
+  String get answer => '정답';
+
+  @override
+  String get showResults => '결과 보기';
+
+  @override
+  String get excellentResult => '훌륭해요! 만점!';
+
+  @override
+  String get greatResult => '잘했어요! 계속 화이팅!';
+
+  @override
+  String get goodResult => '좋아요! 계속 연습하세요!';
+
+  @override
+  String get close => '닫기';
+
+  @override
   String get marketing => '마케팅';
 
   @override

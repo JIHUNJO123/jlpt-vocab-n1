@@ -31,7 +31,7 @@ class _WordListScreenState extends State<WordListScreen> {
   bool _isBannerAdLoaded = false;
   double _wordFontSize = 1.0;
   bool _showNativeLanguage = true;
-  bool _showBandBadge = true; // Band �? ?????
+  bool _showBandBadge = true; // Band �? ?????
 
   final ScrollController _listScrollController = ScrollController();
 
@@ -40,7 +40,7 @@ class _WordListScreenState extends State<WordListScreen> {
 
   String get _scrollOffsetKey =>
       'word_list_scroll_offset_${widget.level ?? 'all'}';
-  
+
   String get _positionKey =>
       'word_list_position_${widget.level ?? 'all'}_${widget.isFlashcardMode ? 'flashcard' : 'list'}';
 
@@ -158,7 +158,7 @@ class _WordListScreenState extends State<WordListScreen> {
     if (!translationService.needsTranslation) return;
     if (!mounted) return;
 
-    // ???번역????(API ?�????
+    // ???번역????(API ?�????
     final langCode = translationService.currentLanguage;
     final embeddedDef = word.getEmbeddedTranslation(langCode, 'definition');
     final embeddedEx = word.getEmbeddedTranslation(langCode, 'example');
@@ -362,7 +362,7 @@ class _WordListScreenState extends State<WordListScreen> {
         ),
         centerTitle: true,
         actions: [
-          // Band �? ????? 버튼 (All Words 리스???�?
+          // Band �? ????? 버튼 (All Words 리스???�?
           // Band badge button - disabled for single-level N1 app
           if (false)
             IconButton(
@@ -489,96 +489,117 @@ class _WordListScreenState extends State<WordListScreen> {
         return false;
       },
       child: ListView.builder(
-      controller: _listScrollController,
-      padding: const EdgeInsets.all(16),
-      itemCount: _words.length,
-      itemBuilder: (context, index) {
-        final word = _words[index];
-        _loadTranslationForWord(word);
+        controller: _listScrollController,
+        padding: const EdgeInsets.all(16),
+        itemCount: _words.length,
+        itemBuilder: (context, index) {
+          final word = _words[index];
+          _loadTranslationForWord(word);
 
-        final definition =
-            _showNativeLanguage && _translatedDefinitions.containsKey(word.id)
-                ? _translatedDefinitions[word.id]!
-                : word.definition;
+          final definition =
+              _showNativeLanguage && _translatedDefinitions.containsKey(word.id)
+                  ? _translatedDefinitions[word.id]!
+                  : word.definition;
 
-        return Card(
-          margin: const EdgeInsets.only(bottom: 12),
-          child: ListTile(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => WordDetailScreen(word: word),
-                ),
-              );
-            },
-            title: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    word.getDisplayWord(
-                      displayMode: DisplayService.instance.displayMode,
-                    ),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16 * _wordFontSize,
-                    ),
+          return Card(
+            margin: const EdgeInsets.only(bottom: 12),
+            child: ListTile(
+              onTap: () async {
+                final result = await Navigator.push<int>(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => WordDetailScreen(
+                          word: word,
+                          wordList: _words,
+                          currentIndex: index,
+                        ),
                   ),
-                ),
-                // Band �?: All Words????? ??
-                if (false) // Level badge disabled for single-level app
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: _getLevelColor(word.level),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                );
+                if (result != null && result != index && mounted) {
+                  final targetOffset = result * 80.0;
+                  if (_listScrollController.hasClients) {
+                    _listScrollController.animateTo(
+                      targetOffset,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  }
+                }
+              },
+              title: Row(
+                children: [
+                  Expanded(
                     child: Text(
-                      word.level,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
+                      word.getDisplayWord(
+                        displayMode: DisplayService.instance.displayMode,
+                      ),
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 16 * _wordFontSize,
                       ),
                     ),
                   ),
-              ],
-            ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 4),
-                if (false && word.partOfSpeech.isNotEmpty && word.partOfSpeech != 'unknown') ...[                  Row(
-                    children: [
-                      Text(
-                        word.partOfSpeech,
-                        style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                  // Band �?: All Words????? ??
+                  if (false) // Level badge disabled for single-level app
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
+                      decoration: BoxDecoration(
+                        color: _getLevelColor(word.level),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        word.level,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                 ],
-                Text(
-                  definition,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 14 * _wordFontSize),
-                ),
-              ],
-            ),
-            trailing: IconButton(
-              icon: Icon(
-                word.isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: word.isFavorite ? Colors.red : null,
               ),
-              onPressed: () => _toggleFavorite(word),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 4),
+                  if (false &&
+                      word.partOfSpeech.isNotEmpty &&
+                      word.partOfSpeech != 'unknown') ...[
+                    Row(
+                      children: [
+                        Text(
+                          word.partOfSpeech,
+                          style: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                  ],
+                  Text(
+                    definition,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 14 * _wordFontSize),
+                  ),
+                ],
+              ),
+              trailing: IconButton(
+                icon: Icon(
+                  word.isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: word.isFavorite ? Colors.red : null,
+                ),
+                onPressed: () => _toggleFavorite(word),
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
       ),
     );
   }

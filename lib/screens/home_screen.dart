@@ -10,6 +10,7 @@ import 'word_list_screen.dart';
 import 'word_detail_screen.dart';
 import 'favorites_screen.dart';
 import 'quiz_screen.dart';
+import 'sentence_quiz_screen.dart';
 import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -366,6 +367,18 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const QuizScreen()),
+            );
+          },
+        ),
+        _buildMenuCard(
+          icon: Icons.edit_note,
+          title: l10n.sentenceQuiz,
+          subtitle: l10n.fillInTheBlank,
+          color: Colors.purple,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SentenceQuizScreen()),
             );
           },
         ),

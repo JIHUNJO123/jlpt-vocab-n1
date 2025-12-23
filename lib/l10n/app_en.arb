@@ -92,8 +92,16 @@
   "parenthesesMode": "Parentheses",
   "furiganaMode": "Brackets",
   "parenthesesExample": "e.g. 食べ物 (たべもの)",
-  "furiganaExample": "e.g. 食べ物 [たべもの]"
-,
+  "furiganaExample": "e.g. 食べ物 [たべもの]",
+  "sentenceQuiz": "Sentence Quiz",
+  "fillInTheBlank": "Fill in the blank",
+  "noExamplesAvailable": "No examples available for quiz",
+  "answer": "Answer",
+  "showResults": "Show Results",
+  "excellentResult": "Excellent! Perfect score!",
+  "greatResult": "Great job! Keep it up!",
+  "goodResult": "Good effort! Keep practicing!",
+  "close": "Close",
   "marketing": "Marketing",
   "support": "Support"
 }

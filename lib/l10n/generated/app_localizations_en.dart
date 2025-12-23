@@ -269,6 +269,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get furiganaExample => 'e.g. 食べ物 [たべもの]';
 
   @override
+  String get sentenceQuiz => 'Sentence Quiz';
+
+  @override
+  String get fillInTheBlank => 'Fill in the blank';
+
+  @override
+  String get noExamplesAvailable => 'No examples available for quiz';
+
+  @override
+  String get answer => 'Answer';
+
+  @override
+  String get showResults => 'Show Results';
+
+  @override
+  String get excellentResult => 'Excellent! Perfect score!';
+
+  @override
+  String get greatResult => 'Great job! Keep it up!';
+
+  @override
+  String get goodResult => 'Good effort! Keep practicing!';
+
+  @override
+  String get close => 'Close';
+
+  @override
   String get marketing => 'Marketing';
 
   @override
