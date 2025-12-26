@@ -94,11 +94,6 @@ class _CollocationQuizScreenState extends State<CollocationQuizScreen> {
   }
 
   void _showResultDialog() async {
-    final adService = AdService.instance;
-    if (!adService.adsRemoved) {
-      await adService.showInterstitialAd();
-    }
-
     if (!mounted) return;
 
     final l10n = AppLocalizations.of(context)!;

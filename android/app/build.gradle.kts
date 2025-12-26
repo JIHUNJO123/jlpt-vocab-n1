@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         applicationId = "com.jhuni.jlpt_vocab_app_n1"
-        minSdk = 21
+        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -35,7 +35,7 @@ android {
         create("release") {
             keyAlias = "upload"
             keyPassword = "gre2024"
-            storeFile = file("upload-keystore.jks")
+            storeFile = file("n1-keystore.jks")
             storePassword = "gre2024"
         }
     }

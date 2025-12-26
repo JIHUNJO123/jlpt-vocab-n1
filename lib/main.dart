@@ -32,8 +32,9 @@ void main() async {
   // 표시 서비스 초기화
   await DisplayService.instance.init();
 
-  // 광고 서비스 초기화
-  await AdService.instance.initialize();
+  // 광고 서비스 초기화 (잠금 해제 상태 로드 + 보상형 광고 로드)
+  await AdService.instance.loadUnlockStatus();
+  AdService.instance.loadRewardedAd();
 
   // 인앱 구매 서비스 초기화
   await PurchaseService.instance.initialize();

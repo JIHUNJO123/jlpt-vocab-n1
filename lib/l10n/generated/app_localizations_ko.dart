@@ -111,7 +111,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get disclaimer => '면책 조항';
 
   @override
-  String get disclaimerText => '이 앱은 독립적인 JLPT 준비 도구이며 일본국제교류기금 또는 일본국제교육협회와 제휴, 보증 또는 승인 관계가 없습니다.';
+  String get disclaimerText =>
+      '이 앱은 독립적인 JLPT 준비 도구이며 일본국제교류기금 또는 일본국제교육협회와 제휴, 보증 또는 승인 관계가 없습니다.';
 
   @override
   String get privacyPolicy => '개인정보 처리방침';
@@ -242,10 +243,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get levelC1 => '고급';
 
   @override
-  String get privacyPolicyContent => '이 앱은 개인정보를 수집, 저장 또는 공유하지 않습니다. 학습 진행 상황과 즐겨찾기는 기기에만 저장됩니다.';
+  String get privacyPolicyContent =>
+      '이 앱은 개인정보를 수집, 저장 또는 공유하지 않습니다. 학습 진행 상황과 즐겨찾기는 기기에만 저장됩니다.';
 
   @override
-  String get restorePurchaseDesc => '다른 기기에서 광고 제거를 구매했거나 앱을 재설치한 경우 여기를 눌러 구매를 복원하세요.';
+  String get restorePurchaseDesc =>
+      '다른 기기에서 광고 제거를 구매했거나 앱을 재설치한 경우 여기를 눌러 구매를 복원하세요.';
 
   @override
   String get restoreComplete => '복원 완료';
@@ -318,4 +321,19 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get cancel => '취소';
+
+  @override
+  String get lockedContent => '잠긴 콘텐츠';
+
+  @override
+  String get watchAdToUnlock => '짧은 영상을 시청하고 자정까지 모든 단어를 잠금 해제하세요!';
+
+  @override
+  String get watchAd => '광고 보기';
+
+  @override
+  String get adNotReady => '광고가 아직 준비되지 않았습니다. 다시 시도해주세요.';
+
+  @override
+  String get unlockedUntilMidnight => '자정까지 모든 단어가 잠금 해제되었습니다!';
 }
