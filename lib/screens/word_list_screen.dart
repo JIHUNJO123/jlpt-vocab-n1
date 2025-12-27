@@ -38,6 +38,7 @@ class _WordListScreenState extends State<WordListScreen> {
   bool _showBandBadge = true; // Band 배지 표시 여부
 
   final ScrollController _listScrollController = ScrollController();
+  bool _isAnimatingScroll = false;
 
   Map<int, String> _translatedDefinitions = {};
   Map<int, String> _translatedExamples = {};
@@ -567,7 +568,7 @@ class _WordListScreenState extends State<WordListScreen> {
   Widget _buildListView() {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
-        if (notification is ScrollEndNotification) {
+        if (notification is ScrollEndNotification && !_isAnimatingScroll) {
           final itemIndex = (_listScrollController.offset / 80.0).round();
           _savePosition(itemIndex);
         }
@@ -620,11 +621,16 @@ class _WordListScreenState extends State<WordListScreen> {
                   // 항상 반환된 위치로 스크롤하고 저장
                   _savePosition(result);
                   if (result != index && _listScrollController.hasClients) {
-                    _listScrollController.animateTo(
-                      result * 80.0,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
+                    _isAnimatingScroll = true;
+                    _listScrollController
+                        .animateTo(
+                          result * 80.0,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        )
+                        .then((_) {
+                          _isAnimatingScroll = false;
+                        });
                   }
                 }
               },
