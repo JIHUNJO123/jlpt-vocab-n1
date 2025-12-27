@@ -504,10 +504,7 @@ class _WordListScreenState extends State<WordListScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [
-                    Colors.orange.shade400,
-                    Colors.deepOrange.shade400,
-                  ],
+                  colors: [Colors.orange.shade400, Colors.deepOrange.shade400],
                 ),
               ),
               child: InkWell(
@@ -526,7 +523,10 @@ class _WordListScreenState extends State<WordListScreen> {
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -534,8 +534,11 @@ class _WordListScreenState extends State<WordListScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.play_circle_filled, 
-                            color: Colors.deepOrange.shade400, size: 16),
+                          Icon(
+                            Icons.play_circle_filled,
+                            color: Colors.deepOrange.shade400,
+                            size: 16,
+                          ),
                           const SizedBox(width: 4),
                           Text(
                             l10n.watchAd,
