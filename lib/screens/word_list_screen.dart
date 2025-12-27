@@ -621,11 +621,12 @@ class _WordListScreenState extends State<WordListScreen> {
                         ),
                   ),
                 );
-                if (result != null && result != index && mounted) {
-                  final targetOffset = result * 80.0;
-                  if (_listScrollController.hasClients) {
+                if (result != null && mounted) {
+                  // 항상 반환된 위치로 스크롤하고 저장
+                  _savePosition(result);
+                  if (result != index && _listScrollController.hasClients) {
                     _listScrollController.animateTo(
-                      targetOffset,
+                      result * 80.0,
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                     );
