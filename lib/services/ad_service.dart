@@ -9,18 +9,18 @@ class AdService {
   static AdService get instance => _instance;
   AdService._internal();
 
-  RewardedAd? _rewardedAd;
+  RewardedInterstitialAd? _rewardedAd;
   bool _isLoading = false;
 
   // 단어 잠금 해제 상태
   static const String _unlockKey = 'words_unlocked_until';
   DateTime? _unlockedUntil;
 
-  // 테스트 광고 ID (개발용)
+  // 테스트 광고 ID (개발용) - 보상형 전면광고
   static const String _testRewardedAdUnitIdAndroid =
-      'ca-app-pub-3940256099942544/5224354917';
+      'ca-app-pub-3940256099942544/5354046379';
   static const String _testRewardedAdUnitIdIOS =
-      'ca-app-pub-3940256099942544/1712485313';
+      'ca-app-pub-3940256099942544/6978759866';
 
   // JLPT N1 보상형 광고 ID (프로덕션)
   static const String _prodRewardedAdUnitIdAndroid =
@@ -81,18 +81,18 @@ class AdService {
     final String adUnitId =
         Platform.isIOS ? rewardedAdUnitIdIOS : rewardedAdUnitIdAndroid;
 
-    RewardedAd.load(
+    RewardedInterstitialAd.load(
       adUnitId: adUnitId,
       request: const AdRequest(),
-      rewardedAdLoadCallback: RewardedAdLoadCallback(
+      rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           _rewardedAd = ad;
           _isLoading = false;
           _loadRetryCount = 0;
-          print('Rewarded ad loaded successfully');
+          print('Rewarded interstitial ad loaded successfully');
         },
         onAdFailedToLoad: (error) {
-          print('Rewarded ad failed to load: ${error.message}');
+          print('Rewarded interstitial ad failed to load: ${error.message}');
           _isLoading = false;
 
           // 재시도 로직
